@@ -23,7 +23,7 @@ Designed to manage products, purchases, sales, inventory, expenses and financial
 ## Login Page
 
 <p align="center">
-  <img src="Source/Pic/LoginPage.png" width="700">
+  <img src="anbar/Source/Pic/LoginPage.png" width="700">
 </p>
 
 ---
@@ -31,7 +31,7 @@ Designed to manage products, purchases, sales, inventory, expenses and financial
 ## Dashboard
 
 <p align="center">
-  <img src="Source/Pic/Dashboard.png" width="900">
+  <img src="anbar/Source/Pic/Dashboard.png" width="900">
 </p>
 
 ---
