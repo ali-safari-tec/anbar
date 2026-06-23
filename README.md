@@ -12,7 +12,6 @@ Designed to manage products, purchases, sales, inventory, expenses and financial
 
 ![C#](https://img.shields.io/badge/C%23-.NET-purple?style=for-the-badge)
 ![WPF](https://img.shields.io/badge/WPF-Desktop-blue?style=for-the-badge)
-![Sqlite](https://img.shields.io/badge/SQL%20Server-Database-red?style=for-the-badge)
 ![Visual Studio](https://img.shields.io/badge/Visual%20Studio-2022-green?style=for-the-badge)
 
 </div>
