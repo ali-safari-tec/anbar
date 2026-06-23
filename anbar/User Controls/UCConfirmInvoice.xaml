@@ -1,0 +1,110 @@
+﻿<UserControl x:Class="anbar.User_Controls.UCConfirmInvoice"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:anbar.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1300" Loaded="UserControl_Loaded" PreviewKeyDown="UserControl_PreviewKeyDown">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="فاکتور های تایید شده" Grid.Column="0" HorizontalAlignment="Right" FontSize="24" FontWeight="Bold" FontFamily="pack://application:,,,/Fonts/#Vazir" Width="1280" Height="700" VerticalAlignment="Top" Margin="0,10,10,0" BorderThickness="2" Grid.ColumnSpan="3" Grid.RowSpan="3" FlowDirection="RightToLeft"/>
+
+        <DataGrid x:Name="dgInvoice" FlowDirection="RightToLeft" Grid.ColumnSpan="2" Grid.RowSpan="3" Grid.Column="1" HorizontalAlignment="Right" Width="500" Height="560" Margin="0,0,20,15" BorderThickness="0" CanUserResizeRows="False" RowHeaderWidth="0" GridLinesVisibility="None" HorizontalScrollBarVisibility="Disabled" CanUserAddRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" SelectionChanged="dgInvoice_SelectionChanged" MouseDown="dgInvoice_MouseDown" PreviewKeyDown="dgInvoice_PreviewKeyDown">
+            <DataGrid.Background>
+                <SolidColorBrush Color="Blue" Opacity="0.2"/>
+            </DataGrid.Background>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="شماره فاکتور" Binding="{Binding InvoiceIdS}" Width="200">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="نام خریدار" Binding="{Binding InvoiceBuyer}" Width="300">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Margin" Value="5,5,5,0"/>
+                    <Setter Property="Background" Value="LightBlue"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="DataGridRow">
+                                <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                                    <DataGridCellsPresenter/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="Margin" Value="10,0,0,0"/>
+                </Style>
+            </DataGrid.CellStyle>
+        </DataGrid>
+
+        <Grid Grid.RowSpan="3" Grid.ColumnSpan="2" Width="800" Height="650">
+            <!-- label fot titles -->
+            <Label Style="{StaticResource lbl}" Content="تاریخ :" FontSize="25" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="480,0,0,400"/>
+            <Label Style="{StaticResource lbl}" Content="مبلغ کل :" FontSize="25" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="480,0,0,250"/>
+            <Label Style="{StaticResource lbl}" Content="تخفیف :" FontSize="25" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="480,0,0,100"/>
+            <Label Style="{StaticResource lbl}" Content="مبلغ قابل پرداخت :" FontSize="25" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="480,50,0,0"/>
+            <Label Style="{StaticResource lbl}" Content="مبلغ پرداخت شده :" FontSize="25" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="480,200,0,0"/>
+            <Label Style="{StaticResource lbl}" Content="مبلغ باقی مانده :" FontSize="25" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="480,350,0,0"/>
+            <!-- label fot date -->
+            <Label Style="{StaticResource lbl}" Content="/" FontSize="30" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="320,0,0,405"/>
+            <Label Style="{StaticResource lbl}" Content="/" FontSize="30" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="200,0,0,405"/>
+            <!-- border for textbox -->
+            <Border Style="{StaticResource brd}" Width="230" Height="50" Margin="40,0,0,400"/>
+            <Border Style="{StaticResource brd}" Width="500" Height="50" Margin="0,0,230,250"/>
+            <Border Style="{StaticResource brd}" Width="500" Height="50" Margin="0,0,230,100"/>
+            <Border Style="{StaticResource brd}" Width="500" Height="50" Margin="0,50,230,0"/>
+            <Border Style="{StaticResource brd}" Width="500" Height="50" Margin="0,200,230,0"/>
+            <Border Style="{StaticResource brd}" Width="500" Height="50" Margin="0,350,230,0"/>
+            <!-- textbox readonly for show detail of date -->
+            <TextBox x:Name="txtDay" Style="{StaticResource tbf}" Width="50" Height="50" Margin="200,0,0,400" IsReadOnly="True" FontSize="25" HorizontalContentAlignment="Center" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+            <TextBox x:Name="txtMonth" Style="{StaticResource tbf}" Width="50" Height="50" Margin="70,0,0,400" IsReadOnly="True" FontSize="25" HorizontalContentAlignment="Center" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+            <TextBox x:Name="txtYear" Style="{StaticResource tbf}" Width="80" Height="50" Margin="0,0,90,400" IsReadOnly="True" FontSize="25" HorizontalContentAlignment="Center" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+            <!-- textbox readonly for show detail of invoice -->
+            <TextBox x:Name="txtTotalFee" Style="{StaticResource tbf}" Width="480" Height="50" Margin="0,0,230,250" IsReadOnly="True" FontSize="30" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+            <TextBox x:Name="txtDiscount" Style="{StaticResource tbf}" Width="480" Height="50" Margin="0,0,230,100" IsReadOnly="True" FontSize="30" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+            <TextBox x:Name="txtTotalPay" Style="{StaticResource tbf}" Width="480" Height="50" Margin="0,50,230,0" IsReadOnly="True" FontSize="30" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+            <TextBox x:Name="txtPay" Style="{StaticResource tbf}" Width="480" Height="50" Margin="0,200,230,0" IsReadOnly="True" FontSize="30" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+            <TextBox x:Name="txtLeft" Style="{StaticResource tbf}" Width="480" Height="50" Margin="0,350,230,0" IsReadOnly="True" FontSize="30" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+
+            <Button x:Name="saveInvoice" Click="saveInvoice_Click" Style="{StaticResource ubtn}" Content="  بازگرداندن فاکتور" Tag="/Source/Pic/back.png" Margin="450,500,0,0"/>
+        </Grid>
+        <Button x:Name="showInvoice" Click="showInvoice_Click" Style="{StaticResource ubtn}" Content="مشاهده فاکتور" Margin="230,160,0,0" Grid.Column="2" Grid.Row="2"/>
+        <Grid x:Name="UserGrid" Grid.ColumnSpan="3" Grid.RowSpan="3" Width="1300" Height="700" Visibility="Collapsed" Background="White">
+
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="anbar.User_Controls.Developer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:anbar.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500">
+    <Border CornerRadius="10">
+        <Border.Background>
+            <ImageBrush ImageSource="/Source/Pic/5_asfasw112.jpg" Stretch="Fill"/>
+        </Border.Background>
+        <Grid>
+            <TextBlock Foreground="#FFDDB5E2" Text="برنامه نویس و توسعه دهنده : علی صفری" FontSize="25" FontWeight="Bold" FontFamily="pack://application:,,,/Fonts/#Vazir" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+            <TextBlock Foreground="#FFDDB5E2" Text="راه های ارتباط" FontSize="20" FontWeight="Bold" FontFamily="pack://application:,,,/Fonts/#Vazir" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,15,100"/>
+            <TextBlock Foreground="#FFDDB5E2" Text="تلفن :" FontSize="20" FontWeight="Bold" FontFamily="pack://application:,,,/Fonts/#Vazir" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="100,0,0,0"/>
+            <TextBlock Foreground="#FFDDB5E2" Text="09911996643" FontSize="20" FontWeight="Bold" FontFamily="pack://application:,,,/Fonts/#Vazir" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="155,0,0,0"/>
+            <TextBlock Foreground="#FFDDB5E2" Text="@Ali_Safari_ech" FontSize="20" FontWeight="Bold" FontFamily="pack://application:,,,/Fonts/#Vazir" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="145,100,0,0"/>
+            <TextBlock Foreground="#FFDDB5E2" Text="alisafari179@gmail.com" FontSize="20" FontWeight="Bold" FontFamily="pack://application:,,,/Fonts/#Vazir" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="145,200,0,0"/>
+            <Image Source="/Source/Pic/telegram.png" Width="40" Height="40" Margin="0,100,260,0"/>
+            <Image Source="/Source/Pic/gmail.png" Width="40" Height="40" Margin="0,200,260,0"/>
+            <Border Background="Red" Opacity="0.7" Width="20" Height="20" CornerRadius="2" Margin="0,0,460,250"/>
+            <Button Width="20" Height="20" Cursor="Hand" Margin="0,0,460,250" Panel.ZIndex="1" Click="Button_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border>
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="/Source/pic/close.png" Stretch="Fill"/>
+                                        </Border.Background>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Opacity" Value="0.5"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+    </Border>
+</UserControl>

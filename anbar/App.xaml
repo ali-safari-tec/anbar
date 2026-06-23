@@ -1,0 +1,23 @@
+﻿<Application x:Class="anbar.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:anbar"
+             StartupUri="Windows/LoginWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Source/Style/Border.xaml"/>
+                <ResourceDictionary Source="Source/Style/BorderForm.xaml"/>
+                <ResourceDictionary Source="Source/Style/Button.xaml"/>
+                <ResourceDictionary Source="Source/Style/ButtonBorder.xaml"/>
+                <ResourceDictionary Source="Source/Style/GridButton.xaml"/>
+                <ResourceDictionary Source="Source/Style/Label.xaml"/>
+                <ResourceDictionary Source="Source/Style/StackPanel.xaml"/>
+                <ResourceDictionary Source="Source/Style/TextBoxForm.xaml"/>
+                <ResourceDictionary Source="Source/Style/TextBoxList.xaml"/>
+                <ResourceDictionary Source="Source/Style/ToolTip.xaml"/>
+                <ResourceDictionary Source="Source/Style/USButton.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

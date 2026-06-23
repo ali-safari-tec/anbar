@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="anbar.User_Controls.FincialYear"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:anbar.User_Controls"
+             mc:Ignorable="d">
+    <Border Height="200" Width="350">
+        <Border.Background>
+            <SolidColorBrush Color="Black" Opacity="0.2"/>
+        </Border.Background>
+        <Grid>
+            <Label Style="{StaticResource lbl}" Content="سال مورد نظر را وارد کنید :" Margin="0,40,20,0"/>
+            <Border Style="{StaticResource brd}" Width="80" Height="45" Margin="0,0,180,85"/>
+            <TextBox x:Name="txtYear" Style="{StaticResource tbf}" Width="60" Height="45" FontSize="30" FontFamily="pack://application:,,,/Fonts/#B Nazanin" MaxLength="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,180,85"/>
+            <Button x:Name="search" Content="اطلاعات سال ورودی" Margin="170,60,0,0" Click="search_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                        <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="150" Height="50" Background="LightBlue" CornerRadius="10">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Opacity" Value="0.7"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="add" Content="سال مالی جدید" Margin="0,60,170,0" Click="add_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                        <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Width="150" Height="50" Background="LightBlue" CornerRadius="10">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Opacity" Value="0.7"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="close" Width="25" Height="25" Margin="0,0,305,150" Click="close_Click" >
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="b" CornerRadius="5">
+                                        <Image Source="/Source/Pic/close.png" Stretch="Uniform" Margin="0,0,0,0"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="b" Property="Background" Value="Red"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+    </Border>
+</UserControl>

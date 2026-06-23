@@ -1,0 +1,303 @@
+﻿<Window x:Class="anbar.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:anbar.Windows"
+        mc:Ignorable="d"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Height="768"
+        KeyDown="Window_KeyDown"
+        Width="1300">
+    <Grid Background="Transparent" Height="768" Width="1300">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="d" Text="{Binding PersianDate}" FontSize="24" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1" Foreground="White" FontFamily="pack://application:,,,/Fonts/#B Nazanin" Panel.ZIndex="1" Margin="0,7,40,0" HorizontalAlignment="Center" Grid.ColumnSpan="2"/>
+        <Border Background="#FF2F2D2D" BorderThickness="0" Grid.ColumnSpan="5" Height="30" CornerRadius="10,10,0,0" Grid.Row="0" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+            <Grid>
+                <Button x:Name="exit" HorizontalAlignment="Right" Width="30" Cursor="Hand" Panel.ZIndex="1" Click="Button_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border x:Name="border" BorderThickness="0" CornerRadius="0,10,0,0">
+                                            <Image Source="/Source/Pic/close.png"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="border" Property="Background" Value="red"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <Button.ToolTip>
+                        <ToolTip Style="{StaticResource tip}" Content="Close" Placement="Bottom" HorizontalOffset="-4" VerticalOffset="5"/>
+                    </Button.ToolTip>
+                </Button>
+                <Button HorizontalAlignment="Right" Width="30" Margin="0,0,30,0"  Click="Button_Click_1" Panel.ZIndex="1" Cursor="Hand">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border x:Name="border" BorderThickness="0">
+                                            <Image Source="/Source/Pic/minimize.png"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="border" Property="Background" Value="#FF2B2525"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <Button.ToolTip>
+                        <ToolTip Style="{StaticResource tip}" Content="Minimize" Placement="Bottom" HorizontalOffset="-23" VerticalOffset="5"/>
+                    </Button.ToolTip>
+                </Button>
+                <Border>
+                    <Grid>
+                        <Image Source="/Source/Pic/warehouse_storage_unit_storehouse_icon_192428.png" HorizontalAlignment="Left" Margin="10,0,0,0" Width="25" Height="25"/>
+                        <Label Content="انبار من" FontFamily="pack://application:,,,/Fonts/#Vazir" Foreground="White" Margin="35,0,0,0"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+        <Border Grid.Column="0" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="5" CornerRadius="0,0,10,10" Background="AliceBlue"/>
+        <Border Background="#FF232363" Grid.Row="1" Width="1300" Height="50" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top" Margin="0,0,0,0" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Label x:Name="Introduction" Style="{StaticResource mlb}" Content="بخش معرفی" Grid.Column="6" MouseEnter="Button_MouseEnter_Person" MouseLeave="Button_MouseLeave_Person"/>
+                <Label x:Name="sellPart" Style="{StaticResource mlb}" Content="بخش فروش" Grid.Column="5" MouseEnter="Button_MouseEnter_Buy" MouseLeave="Button_MouseLeave_Buy"/>
+                <Label x:Name="buyPart" Style="{StaticResource mlb}" Content="بخش خرید" Grid.Column="4" MouseEnter="Button_MouseEnter_Sale" MouseLeave="Button_MouseLeave_Sale"/>
+                <Label x:Name="toolsPart" Style="{StaticResource mlb}" Content="ابزار ها" Grid.Column="3" MouseEnter="Button_MouseEnter_Tool" MouseLeave="Button_MouseLeave_Tool"/>
+                <Button x:Name="btnMenu" Grid.Column="0" Click="btnMenu_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Border x:Name="menuborder" Background="Transparent">
+                                            <Image Source="/Source/Pic/menu.png"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="menuborder" Property="Background" Value="White"/>
+                                                <Setter TargetName="menuborder" Property="Opacity" Value="0.5"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="btnHome" Grid.Column="1" Click="btnHome_Click" Margin="5,0,0,0">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Border x:Name="menuborder" Background="Transparent" Width="50">
+                                            <Image Source="/Source/Pic/home.png" Width="35" Height="50"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="menuborder" Property="Background" Value="White"/>
+                                                <Setter TargetName="menuborder" Property="Opacity" Value="0.5"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
+        </Border>
+        <StackPanel Style="{StaticResource stp}" x:Name="DropdownPanelPerson" Margin="100,45,0,0" Grid.Column="4" Grid.Row="1" Grid.RowSpan="2" MouseEnter="DropdownPanelPerson_MouseEnter" MouseLeave="DropdownPanelPerson_MouseLeave" Panel.ZIndex="1" >
+            <Button Style="{StaticResource btn}" Content="معرفی اشخاص" Margin="0,8,0,2" Click="Button_Click_Buyer">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="مدیریت اشخاص" Placement="Left" HorizontalOffset="-2" VerticalOffset="5"/>
+                </Button.ToolTip>
+            </Button>
+            <Button Style="{StaticResource btn}" Content="معرفی محصولات" Margin="0,2,0,0" Click="Button_Click_Seller">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="مدیریت محصولات" Placement="Left" HorizontalOffset="-2" VerticalOffset="5"/>
+                </Button.ToolTip>
+            </Button>
+        </StackPanel>
+        <StackPanel Style="{StaticResource stp}" Height="105" x:Name="DropdownPanelBuy" Margin="145,45,0,0" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" MouseEnter="DropdownPanelBuy_MouseEnter" MouseLeave="DropdownPanelBuy_MouseLeave" Panel.ZIndex="1">
+            <Button Style="{StaticResource btn}" Content="پیش فاکتور فروش" Margin="0,8,0,2" Click="Button_Click_13">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="مدیریت فاکتور های خریداری شده" Placement="Left" HorizontalOffset="-2" VerticalOffset="5"/>
+                </Button.ToolTip>
+            </Button>
+            <Button Style="{StaticResource btn}" Content="فاکتور های فروش" Margin="0,2,0,2" Click="Button_Click_3">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="مدیریت فاکتور های خریداری شده" Placement="Left" HorizontalOffset="-2" VerticalOffset="5"/>
+                </Button.ToolTip>
+            </Button>
+            <Button Style="{StaticResource btn}" Content="اسناد تایید شده" Margin="0,2,0,0" Click="Button_Click_12">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="مدیریت فاکتور های پرداخت شده" Placement="Left" HorizontalOffset="-2" VerticalOffset="5"/>
+                </Button.ToolTip>
+            </Button>
+        </StackPanel>
+        <StackPanel Style="{StaticResource stp}" Height="105" x:Name="DropdownPanelSale" Margin="0,45,67,0" Grid.Column="3" Grid.Row="1" MouseEnter="Button_MouseEnter_Sale" MouseLeave="Button_MouseLeave_Sale" Panel.ZIndex="1" Grid.ColumnSpan="2">
+            <Button Style="{StaticResource btn}" Content="فاکتور خریداری شده" Margin="0,8,0,2" Panel.ZIndex="1" Click="Button_Click_14">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="مدیریت فاکتور های در حال تولید" Placement="Left" HorizontalOffset="-2" VerticalOffset="5"/>
+                </Button.ToolTip>
+            </Button>
+            <Button Style="{StaticResource btn}" Content="هزینه ها" Margin="0,2,0,2" Panel.ZIndex="1" Click="Button_Click_16">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="مدیریت فاکتور های در حال تولید" Placement="Left" HorizontalOffset="-2" VerticalOffset="5"/>
+                </Button.ToolTip>
+            </Button>
+            <Button Style="{StaticResource btn}" Content="اسناد تایید شده" Margin="0,2,0,2" Click="Button_Click_15">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="مدیریت فاکتور های تسویه شده" Placement="Left" HorizontalOffset="-2" VerticalOffset="5"/>
+                </Button.ToolTip>
+            </Button>
+        </StackPanel>
+        <StackPanel Style="{StaticResource stp}" x:Name="DropdownPanelTool" Margin="1,45,0,0" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" MouseEnter="DropdownPanelTool_MouseEnter" Height="102" MouseLeave="DropdownPanelTool_MouseLeave" Panel.ZIndex="1">
+            <Button Style="{StaticResource btn}" Content="صورت برش" Margin="0,8,0,2" Click="Button_Click_8">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="مدیریت اشخاص" Placement="Left" HorizontalOffset="-2" VerticalOffset="5"/>
+                </Button.ToolTip>
+            </Button>
+            <Button Style="{StaticResource btn}" Content="لیست قیمت" Margin="0,2,0,0" MouseEnter="Button_MouseEnter_1" MouseLeave="Button_MouseLeave_1">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="مدیریت محصولات" Placement="Left" HorizontalOffset="-2" VerticalOffset="5"/>
+                </Button.ToolTip>
+            </Button>
+            <Button Style="{StaticResource btn}" Content="محاسبه قیمت رنگ" Margin="0,2,0,0" Click="Button_Click_11">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="مدیریت محصولات" Placement="Left" HorizontalOffset="-2" VerticalOffset="5"/>
+                </Button.ToolTip>
+            </Button>
+        </StackPanel>
+        <StackPanel Style="{StaticResource stp}" Height="132" x:Name="DropdownPanelMenu" Margin="0,50,100,0" Grid.Column="0" Grid.Row="1" Panel.ZIndex="1">
+            <Button Style="{StaticResource btn}" Content="اطلاعات" Margin="0,2,0,2" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"/>
+            <Button Style="{StaticResource btn}" Content="تغییر نام کاربری و کلمه عبور" Margin="0,2,0,2" Click="Button_Click_5"/>
+            <Button Style="{StaticResource btn}" Content="مدیریت سال مالی" Margin="0,2,0,2" Click="Button_Click_17">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="مدیریت فاکتور های تولید شده و تسویه شده" Placement="Right" HorizontalOffset="2" VerticalOffset="5"/>
+                </Button.ToolTip>
+            </Button>
+            <Button Style="{StaticResource btn}" Content="درباره برنامه" Margin="0,2,0,0" Click="Button_Click_4">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="مدیریت فاکتور های تولید شده و تسویه شده" Placement="Right" HorizontalOffset="2" VerticalOffset="5"/>
+                </Button.ToolTip>
+            </Button>
+        </StackPanel>
+        <StackPanel Style="{StaticResource stp}" x:Name="DropdownPanelInfo" Margin="0,50,60,0" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" MouseEnter="DropdownPanelInfo_MouseEnter" MouseLeave="DropdownPanelInfo_MouseLeave" Panel.ZIndex="1">
+            <Button Style="{StaticResource btn}" Content="ذخیره اطلاعات" Margin="5,8,0,2" Click="Button_Click_6">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="مدیریت فاکتور های در حال تولید" Placement="Right" HorizontalOffset="2" VerticalOffset="5"/>
+                </Button.ToolTip>
+            </Button>
+            <Button Style="{StaticResource btn}" Content="بازیابی اطلاعات" Margin="5,0,0,0" Click="Button_Click_7">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="مدیریت فاکتور های تولید شده و تسویه شده" Placement="Right" HorizontalOffset="2" VerticalOffset="5"/>
+                </Button.ToolTip>
+            </Button>
+        </StackPanel>
+
+        <StackPanel Style="{StaticResource stp}" Background="White" x:Name="DropdownPanelList" Margin="0,86,39,0" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" MouseEnter="DropdownPanelList_MouseEnter" MouseLeave="DropdownPanelList_MouseLeave" Panel.ZIndex="1" Height="60">
+            <Button Style="{StaticResource btn}" Content="لیست مشهد" Margin="0,0,5,2" Click="Button_Click_9">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="مدیریت فاکتور های در حال تولید" Placement="Right" HorizontalOffset="2" VerticalOffset="5"/>
+                </Button.ToolTip>
+            </Button>
+            <Button Style="{StaticResource btn}" Content="لیست کارخانه" Margin="0,0,5,0" Click="Button_Click_10">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="مدیریت فاکتور های تولید شده و تسویه شده" Placement="Right" HorizontalOffset="2" VerticalOffset="5"/>
+                </Button.ToolTip>
+            </Button>
+        </StackPanel>
+
+        <Label Content="مجموع فاکتور های فروش :" Style="{StaticResource lbl}" FontSize="30" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,100,50,0"/>
+        <Label Content="مجموع فاکتور های خرید :" Style="{StaticResource lbl}" FontSize="30" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0,66,0"/>
+        <Label Content="مجموع هزینه ها :" Style="{StaticResource lbl}" FontSize="30" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,85,157,0"/>
+        <Label Content="مجموع پرداخت های فروش :" Style="{StaticResource lbl}" FontSize="30" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0,170,30,0"/>
+        <Label Content="مجموع پرداخت های خرید :" Style="{StaticResource lbl}" FontSize="30" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,68,46,0"/>
+        <Label Content="محاسبه سود یا زیان پرداخت :" Style="{StaticResource lbl}" FontSize="30" Grid.Column="3" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="0,150,18,0"/>
+        <Label Content="محاسبه سود یا زیان کل :" Style="{StaticResource lbl}" FontSize="30" Grid.Column="3" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="0,230,72,0"/>
+
+        <Grid x:Name="profitPay" Visibility="Collapsed" Width="150" Height="60" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Margin="40,0,0,15">
+            <Border Background="Green" Width="25" Height="25" CornerRadius="20" Margin="115,0,0,0"/>
+            <Label Style="{StaticResource lbl}" FontSize="30" Content="سود" Margin="0,0,30,0"/>
+        </Grid>
+        <Grid x:Name="lossPay" Visibility="Collapsed" Width="150" Height="60" Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" Margin="40,0,0,15">
+            <Border Background="Red" Width="25" Height="25" CornerRadius="20" Margin="115,0,0,0"/>
+            <Label Style="{StaticResource lbl}" FontSize="30" Content="زیان" Margin="0,0,30,0"/>
+        </Grid>
+
+        <Grid x:Name="profitInvoice" Visibility="Collapsed" Width="150" Height="60" Grid.Column="1" Grid.Row="4" Grid.RowSpan="2" Margin="40,0,0,40">
+            <Border Background="Green" Width="25" Height="25" CornerRadius="20" Margin="115,0,0,0"/>
+            <Label Style="{StaticResource lbl}" FontSize="30" Content="سود" Margin="0,0,30,0"/>
+        </Grid>
+        <Grid x:Name="lossInvoice" Visibility="Collapsed" Width="150" Height="60" Grid.Column="1" Grid.Row="4" Grid.RowSpan="2" Margin="40,0,0,40">
+            <Border Background="Red" Width="25" Height="25" CornerRadius="20" Margin="115,0,0,0"/>
+            <Label Style="{StaticResource lbl}" FontSize="30" Content="زیان" Margin="0,0,30,0"/>
+        </Grid>
+
+        <Border Background="LightBlue" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="4" Width="430" Height="600" Margin="360,15,0,0" CornerRadius="10"/>
+
+        <TextBox x:Name="sumS" Background="Transparent" BorderThickness="0" FontFamily="pack://application:,,,/Fonts/#B Nazanin" FontSize="35" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" IsReadOnly="True" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Width="400" Height="60" Margin="100,70,0,0" FlowDirection="RightToLeft"/>
+        <TextBox x:Name="sumB" Background="Transparent" BorderThickness="0" FontFamily="pack://application:,,,/Fonts/#B Nazanin" FontSize="35" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" IsReadOnly="True" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Width="400" Height="60" Margin="100,55,0,0" FlowDirection="RightToLeft"/>
+        <TextBox x:Name="sumC" Background="Transparent" BorderThickness="0" FontFamily="pack://application:,,,/Fonts/#B Nazanin" FontSize="35" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" IsReadOnly="True" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Width="400" Height="60" Margin="100,225,0,0" FlowDirection="RightToLeft"/>
+        <TextBox x:Name="sumPayS" Background="Transparent" BorderThickness="0" FontFamily="pack://application:,,,/Fonts/#B Nazanin" FontSize="35" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" IsReadOnly="True" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="2" Width="400" Height="60" Margin="100,25,0,0" FlowDirection="RightToLeft"/>
+        <TextBox x:Name="sumPayB" Background="Transparent" BorderThickness="0" FontFamily="pack://application:,,,/Fonts/#B Nazanin" FontSize="35" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" IsReadOnly="True" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="2" Width="400" Height="60" Margin="100,190,0,0" FlowDirection="RightToLeft"/>
+        <TextBox x:Name="totalPay" Background="Transparent" BorderThickness="0" FontFamily="pack://application:,,,/Fonts/#B Nazanin" FontSize="35" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" IsReadOnly="True" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="2" Width="400" Height="60" Margin="100,0,0,15" FlowDirection="RightToLeft"/>
+        <TextBox x:Name="totalInvoice" Background="Transparent" BorderThickness="0" FontFamily="pack://application:,,,/Fonts/#B Nazanin" FontSize="35" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" IsReadOnly="True" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="2" Width="400" Height="60" Margin="100,145,0,0" FlowDirection="RightToLeft"/>
+
+        <Grid x:Name="MainGrid" Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="4" Margin="0,50,0,10">
+
+        </Grid>
+        <Grid x:Name="MenuGrid" Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="4" Width="500" Height="300">
+
+        </Grid>
+        <Grid x:Name="FincialGrid" Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="4" Width="350" Height="200">
+
+        </Grid>
+    </Grid>
+</Window>

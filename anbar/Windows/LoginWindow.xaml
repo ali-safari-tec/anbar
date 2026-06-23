@@ -1,0 +1,125 @@
+﻿<Window x:Class="anbar.Windows.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:anbar.Windows"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Transparent"
+        KeyDown="Window_KeyDown"
+        Loaded="Window_Loaded">
+    <Border Width="800" Height="400" CornerRadius="10">
+        <Border.Background>
+            <ImageBrush ImageSource="/Source/Pic/5_asfasw112.jpg" Stretch="Fill"/>
+        </Border.Background>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button x:Name="btnVisible" Width="50" Height="40" Grid.Row="2" Grid.Column="3" Margin="0,20,80,0" Background="Transparent" Panel.ZIndex="1" BorderThickness="0" Cursor="Hand" Visibility="Collapsed"
+            Click="btnVisible_Click" MouseEnter="btnVisible_MouseEnter" MouseLeave="btnVisible_MouseLeave">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border>
+                            <Image Source="/Source/Pic/eye_icon_246410.png" Stretch="Uniform"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="Show Password" Placement="Left" VerticalOffset="10"/>
+                </Button.ToolTip>
+            </Button>
+            <Button x:Name="btninVisible" Width="50" Height="40" Grid.Row="2" Grid.Column="3" Margin="0,20,80,0" Background="Transparent" Panel.ZIndex="1" BorderThickness="0" Cursor="Hand" Visibility="Collapsed" Click="btninVisible_Click" MouseEnter="btninVisible_MouseEnter" MouseLeave="btninVisible_MouseLeave">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border>
+                            <Image Source="/Source/Pic/eye_closed_icon_246409.png" Stretch="Uniform"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="Hide Password" Placement="Left" VerticalOffset="10"/>
+                </Button.ToolTip>
+            </Button>
+            <Rectangle x:Name="rec" Fill="Black" Opacity="0.5" Width="22" Height="22" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,14,0,0" RadiusX="2" RadiusY="2"/>
+            <Image Source="/Source/Pic/UserName.png" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Panel.ZIndex="1" Width="50" Height="30" Margin="20,20,0,0" />
+            <Image Source="/Source/Pic/Password.png" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" Panel.ZIndex="1" Width="50" Height="30" Margin="20,20,0,0"/>
+            <Border Background="White" Opacity="0.35" Width="550" Height="350" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="4" CornerRadius="10" />
+            <Button Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,15,0,0" Cursor="Hand" BorderThickness="0" Click="Exit_Button" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border>
+                            <Image Source="/Source/Pic/Close.png" Stretch="Fill"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="Exit" Placement="Right" HorizontalOffset="5"/>
+                </Button.ToolTip>
+            </Button>
+            <Label Content="ورود به حساب" Width="220" Height="60" Grid.ColumnSpan="2" Grid.Column="2" Margin="100,10,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="35" FontWeight="Bold" FontFamily="pack://application:,,,/Fonts/#Vazir"/>
+            <Label Content="نام کاربری" FontFamily="pack://application:,,,/Fonts/#Vazir" Width="110" Height="43" Grid.RowSpan="2" Grid.Column="4" VerticalContentAlignment="Center" FlowDirection="RightToLeft" Margin="0,20,30,0" FontWeight="Bold" FontSize="24"/>
+            <Label Content="کلمه عبور" FontFamily="pack://application:,,,/Fonts/#Vazir" Width="110" Height="43" Grid.RowSpan="4" Grid.Column="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,20,30,0" FontWeight="Bold" FontSize="24"/>
+            <Border Width="470" Height="40" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,20,0,0" Background="Black" Opacity="0.5" CornerRadius="15">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <Border BorderThickness="1,0,0,0" BorderBrush="White" Grid.Column="1" Height="35"/>
+                    <TextBox Text="Enter Your Username" Opacity="0.5" Foreground="LightGray" FontSize="12" x:Name="txt" Width="410" Height="40" Background="Transparent" BorderThickness="0" VerticalContentAlignment="Center" Margin="10,0,0,0" MaxLength="25" CaretBrush="White" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus">
+                    </TextBox>
+                </Grid>
+            </Border>
+            <Border Width="470" Height="40" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,20,0,0"  Background="Black" Opacity="0.5" CornerRadius="15">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <Border BorderThickness="1,0,0,0" BorderBrush="White" Grid.Column="1" Height="35"/>
+                    <TextBlock x:Name="txb" Text="Enter Your Password" Foreground="LightGray" FontSize="12" VerticalAlignment="Center" Margin="12,0,0,0" IsHitTestVisible="False" Opacity="0.5"/>
+                    <PasswordBox x:Name="pwb"  Width="410" Height="40" Background="Transparent" BorderThickness="0" VerticalContentAlignment="Center" Foreground="White" FontSize="22" Margin="10,0,0,0" MaxLength="20" CaretBrush="White" GotFocus="pwb_GotFocus" LostFocus="pwb_LostFocus" PasswordChanged="pwb_PasswordChanged"/>
+                    <TextBox x:Name="txt2" Width="410" Height="40" Background="Transparent" BorderThickness="0" VerticalContentAlignment="Center" Foreground="White" FontSize="22" Margin="10,0,0,0" MaxLength="20" CaretBrush="White" Visibility="Collapsed" TextChanged="txt2_TextChanged"/>
+                </Grid>
+            </Border>
+            <Button x:Name="button" Width="150" Height="50" FontSize="24" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3" Margin="120,0,0,45" Cursor="Hand" Click="button_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="border" Background="#6F42C1" BorderThickness="0" CornerRadius="10" >
+                                        <Label x:Name="label" Content="ورود" HorizontalAlignment="Center" FontFamily="pack://application:,,,/Fonts/#Vazir" Foreground="White"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="border" Property="Background" Value="#A14DF0"/>
+                                            <Setter TargetName="label" Property="Foreground" Value="Black"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="Enter" Placement="Left" VerticalOffset="15" HorizontalOffset="-5"/>
+                </Button.ToolTip>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

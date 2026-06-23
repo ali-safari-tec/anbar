@@ -1,0 +1,136 @@
+﻿<UserControl x:Class="anbar.User_Controls.UCPreInvoice"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:anbar.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1300" Loaded="UserControl_Loaded" PreviewKeyDown="UserControl_KeyDown">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="پیش فاکتور های فروش" Grid.Column="0" HorizontalAlignment="Right" FontSize="24" FontWeight="Bold" FontFamily="pack://application:,,,/Fonts/#Vazir" Width="1280" Height="700" VerticalAlignment="Top" Margin="0,10,10,0" BorderThickness="2" Grid.ColumnSpan="3" Grid.RowSpan="3" FlowDirection="RightToLeft"/>
+
+        <DataGrid x:Name="dgInvoice" FlowDirection="RightToLeft" Grid.ColumnSpan="2" Grid.RowSpan="3" Grid.Column="1" HorizontalAlignment="Right" Width="500" Height="560" Margin="0,0,20,15" BorderThickness="0" IsReadOnly="True" CanUserResizeRows="False" RowHeaderWidth="0" GridLinesVisibility="None" HorizontalScrollBarVisibility="Disabled" CanUserAddRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" SelectionChanged="dgInvoice_SelectionChanged" PreviewKeyDown="dgInvoice_KeyDown" MouseDown="dgInvoice_MouseDown">
+            <DataGrid.Background>
+                <SolidColorBrush Color="Blue" Opacity="0.2"/>
+            </DataGrid.Background>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="شماره پیش فاکتور" Binding="{Binding PreInvoiceIdS}" Width="200">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="نام خریدار" Binding="{Binding PreInvoiceBuyer}" Width="300">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Margin" Value="5,5,5,0"/>
+                    <Setter Property="Background" Value="LightBlue"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="DataGridRow">
+                                <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                                    <DataGridCellsPresenter/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="Margin" Value="10,0,0,0"/>
+                </Style>
+            </DataGrid.CellStyle>
+        </DataGrid>
+
+        <Grid Grid.RowSpan="3" Grid.ColumnSpan="2" Width="800" Height="650">
+            <!-- label fot titles -->
+            <Label Style="{StaticResource lbl}" Content="تاریخ صدور :" FontSize="25" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="480,0,0,400"/>
+            <Label Style="{StaticResource lbl}" Content="تاریخ اعتبار :" FontSize="25" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="480,0,0,250"/>
+            <Label Style="{StaticResource lbl}" Content="مبلغ کل :" FontSize="25" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="480,0,0,100"/>
+            <Label Style="{StaticResource lbl}" Content="تخفیف :" FontSize="25" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="480,50,0,0"/>
+            <Label Style="{StaticResource lbl}" Content="مبلغ قابل پرداخت :" FontSize="25" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="480,200,0,0"/>
+            <!-- label fot date -->
+            <Label Style="{StaticResource lbl}" Content="/" FontSize="30" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="320,0,0,405"/>
+            <Label Style="{StaticResource lbl}" Content="/" FontSize="30" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="200,0,0,405"/>
+            <Label Style="{StaticResource lbl}" Content="/" FontSize="30" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="320,0,0,255"/>
+            <Label Style="{StaticResource lbl}" Content="/" FontSize="30" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="200,0,0,255"/>
+            <!-- border for textbox -->
+            <Border Style="{StaticResource brd}" Width="230" Height="50" Margin="40,0,0,400"/>
+            <Border Style="{StaticResource brd}" Width="230" Height="50" Margin="40,0,0,250"/>
+            <Border Style="{StaticResource brd}" Width="500" Height="50" Margin="0,0,230,100"/>
+            <Border Style="{StaticResource brd}" Width="500" Height="50" Margin="0,50,230,0"/>
+            <Border Style="{StaticResource brd}" Width="500" Height="50" Margin="0,200,230,0"/>
+            <!-- textbox readonly for show detail of date -->
+            <TextBox x:Name="txtDay" Style="{StaticResource tbf}" Width="50" Height="50" Margin="200,0,0,400" IsReadOnly="True" FontSize="25" HorizontalContentAlignment="Center" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+            <TextBox x:Name="txtMonth" Style="{StaticResource tbf}" Width="50" Height="50" Margin="70,0,0,400" IsReadOnly="True" FontSize="25" HorizontalContentAlignment="Center" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+            <TextBox x:Name="txtYear" Style="{StaticResource tbf}" Width="80" Height="50" Margin="0,0,90,400" IsReadOnly="True" FontSize="25" HorizontalContentAlignment="Center" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+            <TextBox x:Name="txtDayS" Style="{StaticResource tbf}" Width="50" Height="50" Margin="200,0,0,250" IsReadOnly="True" FontSize="25" HorizontalContentAlignment="Center" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+            <TextBox x:Name="txtMonthS" Style="{StaticResource tbf}" Width="50" Height="50" Margin="70,0,0,250" IsReadOnly="True" FontSize="25" HorizontalContentAlignment="Center" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+            <TextBox x:Name="txtYearS" Style="{StaticResource tbf}" Width="80" Height="50" Margin="0,0,90,250" IsReadOnly="True" FontSize="25" HorizontalContentAlignment="Center" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+            <!-- textbox readonly for show detail of invoice -->
+            <TextBox x:Name="txtTotalFee" Style="{StaticResource tbf}" Width="480" Height="50" Margin="0,0,230,100" IsReadOnly="True" FontSize="30" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+            <TextBox x:Name="txtDiscount" Style="{StaticResource tbf}" Width="480" Height="50" Margin="0,50,230,0" IsReadOnly="True" FontSize="30" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+            <TextBox x:Name="txtTotalPay" Style="{StaticResource tbf}" Width="480" Height="50" Margin="0,200,230,0" IsReadOnly="True" FontSize="30" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+
+            <Button x:Name="saveInvoice" Click="saveInvoice_Click" Style="{StaticResource ubtn}" Content="   ثبت  پیش فاکتور" Tag="/Source/Pic/save.png" Margin="110,350,0,0">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="در صورت تایید پیش فاکتور به فاکتور نبدیل شود" Placement="Bottom" VerticalOffset="3" HorizontalOffset="-70"/>
+                </Button.ToolTip>
+            </Button>
+        </Grid>
+
+
+        <Button x:Name="show" Click="show_Click" Style="{StaticResource ubtn}" Content="مشاهده پیش فاکتور" Grid.Column="2" Grid.Row="2" Margin="230,160,0,0" Visibility="Collapsed">
+            <Button.ToolTip>
+                <ToolTip Style="{StaticResource tip}" Content="مشاهده پیش فاکتور مورد نظر" Placement="Top" VerticalOffset="-5" HorizontalOffset="0"/>
+            </Button.ToolTip>
+        </Button>
+        <Button x:Name="add" Click="add_Click" Tag="/Source/pic/addform.png" Style="{StaticResource ubtn}" Content="افزودن پیش فاکتور " Grid.Column="2" Grid.Row="2" Margin="230,160,0,0">
+            <Button.ToolTip>
+                <ToolTip Style="{StaticResource tip}" Content="افزودن پیش فاکتور جدید" Placement="Top" VerticalOffset="-5" HorizontalOffset="0"/>
+            </Button.ToolTip>
+        </Button>
+        <Button x:Name="edit" Click="edit_Click"  Tag="/Source/pic/edit.png" Style="{StaticResource ubtn}" Content="ویرایش پیش فاکتور" Grid.Column="2" Grid.Row="2" Margin="0,160,100,0">
+            <Button.ToolTip>
+                <ToolTip Style="{StaticResource tip}" Content="ویرایش پیش فاکتور مورد نظر" Placement="Top" VerticalOffset="-5" HorizontalOffset="0"/>
+            </Button.ToolTip>
+        </Button>
+        <Button x:Name="delete" Click="delete_Click" Tag="/Source/pic/delete.png" Style="{StaticResource ubtn}" Content="  حذف پیش فاکتور" Grid.Column="1" Grid.Row="2" Margin="3,160,0,0" Grid.ColumnSpan="2">
+            <Button.ToolTip>
+                <ToolTip Style="{StaticResource tip}" Content="حذف پیش فاکتور مورد نظر" Placement="Top" VerticalOffset="-5" HorizontalOffset="0"/>
+            </Button.ToolTip>
+        </Button>
+        <Grid x:Name="UserGrid" Grid.ColumnSpan="3" Grid.RowSpan="3" Width="1300" Height="700" Visibility="Collapsed" Background="White">
+
+        </Grid>
+    </Grid>
+</UserControl>

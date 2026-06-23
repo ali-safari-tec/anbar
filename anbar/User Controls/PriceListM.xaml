@@ -1,0 +1,699 @@
+﻿<UserControl x:Class="anbar.User_Controls.PriceListM"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:anbar.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1300" KeyDown="UserControl_KeyDown" Background="White">
+    <ScrollViewer x:Name="main2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <Viewbox Width="1200" Height="1600">
+            <Grid x:Name="main" Width="2480" Height="3508">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+
+                <Label Style="{StaticResource lbl}" Grid.Column="12" Grid.Row="1" Content="تاریخ :" Width="156" Padding="0" Height="100" HorizontalContentAlignment="Center" FontSize="60" VerticalContentAlignment="Center" Margin="15,15,0,0"/>
+                <Label Style="{StaticResource lbl}" Grid.Column="11" Margin="0,22,110,0" Grid.ColumnSpan="2" Grid.Row="1" Content="/" Width="25" Padding="0" Height="100" HorizontalContentAlignment="Center" FontSize="60" VerticalContentAlignment="Center" Panel.ZIndex="2"/>
+                <Label Style="{StaticResource lbl}" Grid.Column="11" Margin="0,22,67,0" Grid.Row="1" Content="/" Width="25" Padding="0" Height="100" HorizontalContentAlignment="Center" FontSize="60" VerticalContentAlignment="Center" Panel.ZIndex="2"/>
+                <TextBox x:Name="d" Style="{StaticResource tbl}" Grid.Column="11" Grid.ColumnSpan="2" Grid.Row="1"  Width="70" Padding="0" Height="70" Margin="0,0,25,0" HorizontalContentAlignment="Center" FontSize="60" VerticalContentAlignment="Center" MaxLength="2" />
+                <TextBox x:Name="m" Style="{StaticResource tbl}" Grid.Column="11" Grid.ColumnSpan="2" Grid.Row="1"  Width="70" Padding="0" Height="70" Margin="0,0,190,0" HorizontalContentAlignment="Center" FontSize="60" VerticalContentAlignment="Center" MaxLength="2" />
+                <TextBox x:Name="y" Style="{StaticResource tbl}" Grid.Column="10" Grid.ColumnSpan="2" Grid.Row="1"  Width="120" Padding="0" Height="70" Margin="0,0,5,0" HorizontalContentAlignment="Center" FontSize="60" VerticalContentAlignment="Center" MaxLength="4"/>
+
+                <Button x:Name="inc" Content="افزایش فونت" Click="IncreaseFontSize" Width="50" Height="50" Margin="120,90,0,0" Grid.Column="2" Grid.Row="1">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border BorderThickness="0" CornerRadius="200">
+                                            <Border.Background>
+                                                <SolidColorBrush Color="Blue" Opacity="0.2"/>
+                                            </Border.Background>
+                                            <Image Source="/Source/Pic/inc.png" Stretch="Uniform" Width="32" Height="32"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Opacity" Value="0.7"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="dec" Content="افزایش فونت" Click="DecreaseFontSize" Width="50" Height="50" Margin="0,90,0,0" Grid.Column="2" Grid.Row="1">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border BorderThickness="0" CornerRadius="200">
+                                            <Border.Background>
+                                                <SolidColorBrush Color="Blue" Opacity="0.2"/>
+                                            </Border.Background>
+                                            <Image Source="/Source/Pic/dec.png" Stretch="Uniform" Width="35" Height="35"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Opacity" Value="0.7"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="edit" Width="50" Height="50" Margin="0,90,120,0" BorderThickness="0" Click="edit_Click" Grid.Column="1" Grid.Row="1">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Image Source="/Source/Pic/edit.png" Stretch="Uniform"/>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Opacity" Value="0.7"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="save" Width="50" Height="50" Margin="0,90,0,0" BorderThickness="0" Click="save_Click" Grid.Column="1" Grid.Row="1">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Image Source="/Source/Pic/save2.png" Stretch="Uniform"/>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Opacity" Value="0.7"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="new1" Width="50" Height="50" Margin="120,90,0,0" BorderThickness="0" Click="new_Click" Grid.Column="1" Grid.Row="1">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Image Source="/Source/Pic/change.png" Stretch="Uniform"/>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Opacity" Value="0.7"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="print" Width="50" Height="50" Margin="40,90,0,0" BorderThickness="0"  Click="print_Click" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Cursor" Value="Hand"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Image Source="/Source/Pic/print.png" Stretch="Uniform"/>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Opacity" Value="0.7"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+
+                <Border x:Name="h1" Grid.Column="1" Grid.ColumnSpan="11" Grid.Row="2">
+                    <Border.Background>
+                        <SolidColorBrush Color="Blue" Opacity="0.2"/>
+                    </Border.Background>
+                </Border>
+                <Border x:Name="h2" Grid.Column="12" Grid.RowSpan="34" Grid.Row="3">
+                    <Border.Background>
+                        <SolidColorBrush Color="Blue" Opacity="0.2"/>
+                    </Border.Background>
+                </Border>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="2" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="3" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="4" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="5" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="6" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="7" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="8" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="9" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="10" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="11" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="12" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="13" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="14" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="15" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="16" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="17" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="18" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="19" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="20" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="21" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="22" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="23" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="24" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="25" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="26" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="27" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="28" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="29" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="30" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="31" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="32" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="33" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="34" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="35" Height="3" Grid.RowSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="12" Grid.Row="36" Height="3" Grid.RowSpan="2" Panel.ZIndex="1" Margin="0,50,0,0"/>
+                <Border Background="Blue" Grid.Column="1" Grid.ColumnSpan="11" Grid.Row="1" Height="3" Grid.RowSpan="2" Panel.ZIndex="1" Margin="0,107,0,0"/>
+                <Border Background="Blue" Grid.Column="0" Grid.RowSpan="35" Grid.Row="2" Width="3" Grid.ColumnSpan="2" Panel.ZIndex="1" Margin="0,0,184,0"/>
+                <Border Background="Blue" Grid.Column="1" Grid.RowSpan="35" Grid.Row="2" Width="3" Grid.ColumnSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="2" Grid.RowSpan="35" Grid.Row="2" Width="3" Grid.ColumnSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="3" Grid.RowSpan="35" Grid.Row="2" Width="3" Grid.ColumnSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="4" Grid.RowSpan="35" Grid.Row="2" Width="3" Grid.ColumnSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="5" Grid.RowSpan="35" Grid.Row="2" Width="3" Grid.ColumnSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="6" Grid.RowSpan="35" Grid.Row="2" Width="3" Grid.ColumnSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="7" Grid.RowSpan="35" Grid.Row="2" Width="3" Grid.ColumnSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="8" Grid.RowSpan="35" Grid.Row="2" Width="3" Grid.ColumnSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="9" Grid.RowSpan="35" Grid.Row="2" Width="3" Grid.ColumnSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="10" Grid.RowSpan="35" Grid.Row="2" Width="3" Grid.ColumnSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="11" Grid.RowSpan="35" Grid.Row="2" Width="3" Grid.ColumnSpan="2" Panel.ZIndex="1"/>
+                <Border Background="Blue" Grid.Column="12" Grid.RowSpan="34" Grid.Row="3" Width="3" Grid.ColumnSpan="2" Panel.ZIndex="1" Margin="183,0,0,0"/>
+
+
+                <Label Style="{StaticResource lbl}" Grid.Column="5" Grid.Row="1" Content="لیست قیمت کارخانه (فولادی)" Grid.ColumnSpan="4" FontSize="60" HorizontalAlignment="Center" Margin="0,30,0,0"/>
+                <Label Style="{StaticResource lbl}" Content="پرش 2 سانت" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="3"/>
+                <Label Style="{StaticResource lbl}" Content="10 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="4"/>
+                <Label Style="{StaticResource lbl}" Content="12 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="5"/>
+                <Label Style="{StaticResource lbl}" Content="14 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="6"/>
+                <Label Style="{StaticResource lbl}" Content="16 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="7"/>
+                <Label Style="{StaticResource lbl}" Content="18 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="8"/>
+                <Label Style="{StaticResource lbl}" Content="20 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="9"/>
+                <Label Style="{StaticResource lbl}" Content="22 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="10"/>
+                <Label Style="{StaticResource lbl}" Content="24 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="11"/>
+                <Label Style="{StaticResource lbl}" Content="26 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="12"/>
+                <Label Style="{StaticResource lbl}" Content="28 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="13"/>
+                <Label Style="{StaticResource lbl}" Content="30 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="14"/>
+                <Label Style="{StaticResource lbl}" Content="32 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="15"/>
+                <Label Style="{StaticResource lbl}" Content="34 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="16"/>
+                <Label Style="{StaticResource lbl}" Content="35 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="17"/>
+                <Label Style="{StaticResource lbl}" Content="36 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="18"/>
+                <Label Style="{StaticResource lbl}" Content="38 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="19"/>
+                <Label Style="{StaticResource lbl}" Content="40 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="20"/>
+                <Label Style="{StaticResource lbl}" Content="42 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="21"/>
+                <Label Style="{StaticResource lbl}" Content="44 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="22"/>
+                <Label Style="{StaticResource lbl}" Content="46 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="23"/>
+                <Label Style="{StaticResource lbl}" Content="48 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="24"/>
+                <Label Style="{StaticResource lbl}" Content="50 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="25"/>
+                <Label Style="{StaticResource lbl}" Content="52 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="26"/>
+                <Label Style="{StaticResource lbl}" Content="54 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="27"/>
+                <Label Style="{StaticResource lbl}" Content="56 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="28"/>
+                <Label Style="{StaticResource lbl}" Content="58 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="29"/>
+                <Label Style="{StaticResource lbl}" Content="60 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="30"/>
+                <Label Style="{StaticResource lbl}" Content="62 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="31"/>
+                <Label Style="{StaticResource lbl}" Content="64 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="32"/>
+                <Label Style="{StaticResource lbl}" Content="65 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="33"/>
+                <Label Style="{StaticResource lbl}" Content="66 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="34"/>
+                <Label Style="{StaticResource lbl}" Content="68 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="35"/>
+                <Label Style="{StaticResource lbl}" Content="70 سانتی متر" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="35" Grid.Column="12" Grid.Row="36"/>
+
+                <Label Style="{StaticResource lbl}" Content="گرد 14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="45" Grid.Column="11" Grid.Row="2"/>
+                <Label Style="{StaticResource lbl}" Content="گرد 16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="45" Grid.Column="10" Grid.Row="2"/>
+                <Label Style="{StaticResource lbl}" Content="گرد 18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="45" Grid.Column="9" Grid.Row="2"/>
+                <Label Style="{StaticResource lbl}" Content="گرد 19" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="45" Grid.Column="8" Grid.Row="2"/>
+                <Label Style="{StaticResource lbl}" Content="گرد 20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="45" Grid.Column="7" Grid.Row="2"/>
+                <Label Style="{StaticResource lbl}" Content="گرد 22" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="45" Grid.Column="6" Grid.Row="2"/>
+                <Label Style="{StaticResource lbl}" Content="گرد 24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="45" Grid.Column="5" Grid.Row="2"/>
+                <Label Style="{StaticResource lbl}" Content="گرد 27" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="45" Grid.Column="4" Grid.Row="2"/>
+                <Label Style="{StaticResource lbl}" Content="گرد 28" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="45" Grid.Column="3" Grid.Row="2"/>
+                <Label Style="{StaticResource lbl}" Content="گرد 30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="45" Grid.Column="2" Grid.Row="2"/>
+                <Label Style="{StaticResource lbl}" Content="گرد 32" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="45" Grid.Column="1" Grid.Row="2"/>
+
+                <TextBox x:Name="p14" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="3" TextChanged="a10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a10" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="4" TextChanged="a10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a12" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="5" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a14" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="6" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a16" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="7" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a18" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="8" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a20" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="9" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a22" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="10" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a24" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="11" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a26" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="12" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a28" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="13" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a30" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="14" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a32" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="15" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a34" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="16" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a35" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="17" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a36" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="18" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a38" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="19" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a40" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="20" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a42" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="21" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a44" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="22" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a46" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="23" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a48" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="24" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a50" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="25" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a52" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="26" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a54" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="27" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a56" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="28" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a58" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="29" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a60" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="30" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a62" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="31" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a64" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="32" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a65" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="33" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a66" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="34" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a68" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="35" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="a70" Style="{StaticResource tbl}" Grid.Column="11" Grid.Row="36" FontSize="{Binding FontSize}"/>
+
+                <TextBox x:Name="p16" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="3" TextChanged="b10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b10" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="4" TextChanged="b10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b12" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="5" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b14" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="6" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b16" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="7" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b18" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="8" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b20" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="9" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b22" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="10" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b24" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="11" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b26" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="12" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b28" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="13" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b30" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="14" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b32" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="15" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b34" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="16" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b35" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="17" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b36" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="18" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b38" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="19" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b40" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="20" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b42" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="21" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b44" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="22" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b46" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="23" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b48" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="24" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b50" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="25" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b52" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="26" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b54" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="27" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b56" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="28" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b58" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="29" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b60" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="30" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b62" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="31" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b64" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="32" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b65" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="33" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b66" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="34" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b68" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="35" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="b70" Style="{StaticResource tbl}" Grid.Column="10" Grid.Row="36" FontSize="{Binding FontSize}"/>
+
+                <TextBox x:Name="p18" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="3" TextChanged="c10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c10" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="4" TextChanged="c10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c12" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="5" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c14" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="6" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c16" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="7" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c18" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="8" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c20" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="9" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c22" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="10" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c24" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="11" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c26" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="12" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c28" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="13" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c30" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="14" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c32" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="15" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c34" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="16" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c35" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="17" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c36" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="18" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c38" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="19" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c40" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="20" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c42" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="21" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c44" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="22" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c46" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="23" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c48" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="24" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c50" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="25" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c52" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="26" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c54" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="27" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c56" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="28" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c58" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="29" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c60" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="30" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c62" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="31" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c64" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="32" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c65" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="33" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c66" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="34" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c68" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="35" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="c70" Style="{StaticResource tbl}" Grid.Column="9" Grid.Row="36" FontSize="{Binding FontSize}"/>
+
+                <TextBox x:Name="p19" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="3" TextChanged="d10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d10" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="4" TextChanged="d10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d12" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="5" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d14" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="6" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d16" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="7" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d18" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="8" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d20" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="9" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d22" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="10" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d24" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="11" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d26" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="12" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d28" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="13" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d30" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="14" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d32" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="15" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d34" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="16" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d35" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="17" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d36" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="18" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d38" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="19" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d40" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="20" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d42" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="21" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d44" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="22" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d46" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="23" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d48" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="24" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d50" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="25" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d52" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="26" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d54" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="27" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d56" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="28" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d58" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="29" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d60" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="30" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d62" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="31" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d64" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="32" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d65" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="33" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d66" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="34" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d68" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="35" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="d70" Style="{StaticResource tbl}" Grid.Column="8" Grid.Row="36" FontSize="{Binding FontSize}"/>
+
+                <TextBox x:Name="p20" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="3" TextChanged="e10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e10" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="4" TextChanged="e10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e12" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="5" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e14" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="6" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e16" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="7" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e18" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="8" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e20" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="9" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e22" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="10" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e24" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="11" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e26" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="12" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e28" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="13" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e30" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="14" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e32" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="15" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e34" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="16" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e35" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="17" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e36" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="18" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e38" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="19" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e40" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="20" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e42" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="21" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e44" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="22" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e46" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="23" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e48" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="24" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e50" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="25" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e52" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="26" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e54" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="27" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e56" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="28" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e58" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="29" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e60" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="30" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e62" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="31" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e64" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="32" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e65" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="33" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e66" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="34" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e68" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="35" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="e70" Style="{StaticResource tbl}" Grid.Column="7" Grid.Row="36" FontSize="{Binding FontSize}"/>
+
+                <TextBox x:Name="p22" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="3" TextChanged="f10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f10" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="4" TextChanged="f10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f12" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="5" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f14" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="6" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f16" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="7" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f18" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="8" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f20" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="9" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f22" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="10" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f24" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="11" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f26" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="12" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f28" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="13" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f30" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="14" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f32" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="15" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f34" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="16" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f35" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="17" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f36" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="18" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f38" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="19" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f40" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="20" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f42" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="21" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f44" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="22" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f46" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="23" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f48" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="24" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f50" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="25" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f52" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="26" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f54" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="27" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f56" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="28" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f58" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="29" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f60" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="30" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f62" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="31" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f64" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="32" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f65" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="33" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f66" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="34" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f68" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="35" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="f70" Style="{StaticResource tbl}" Grid.Column="6" Grid.Row="36" FontSize="{Binding FontSize}"/>
+
+                <TextBox x:Name="p24" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="3" TextChanged="g10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g10" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="4" TextChanged="g10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g12" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="5" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g14" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="6" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g16" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="7" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g18" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="8" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g20" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="9" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g22" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="10" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g24" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="11" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g26" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="12" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g28" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="13" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g30" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="14" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g32" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="15" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g34" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="16" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g35" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="17" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g36" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="18" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g38" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="19" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g40" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="20" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g42" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="21" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g44" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="22" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g46" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="23" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g48" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="24" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g50" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="25" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g52" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="26" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g54" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="27" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g56" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="28" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g58" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="29" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g60" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="30" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g62" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="31" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g64" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="32" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g65" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="33" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g66" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="34" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g68" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="35" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="g70" Style="{StaticResource tbl}" Grid.Column="5" Grid.Row="36" FontSize="{Binding FontSize}"/>
+
+                <TextBox x:Name="p27" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="3" TextChanged="h10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h10" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="4" TextChanged="h10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h12" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="5" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h14" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="6" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h16" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="7" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h18" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="8" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h20" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="9" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h22" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="10" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h24" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="11" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h26" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="12" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h28" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="13" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h30" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="14" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h32" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="15" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h34" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="16" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h35" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="17" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h36" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="18" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h38" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="19" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h40" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="20" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h42" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="21" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h44" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="22" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h46" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="23" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h48" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="24" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h50" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="25" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h52" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="26" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h54" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="27" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h56" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="28" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h58" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="29" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h60" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="30" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h62" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="31" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h64" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="32" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h65" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="33" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h66" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="34" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h68" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="35" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="h70" Style="{StaticResource tbl}" Grid.Column="4" Grid.Row="36" FontSize="{Binding FontSize}"/>
+
+                <TextBox x:Name="p28" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="3" TextChanged="i10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i10" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="4" TextChanged="i10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i12" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="5" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i14" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="6" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i16" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="7" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i18" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="8" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i20" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="9" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i22" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="10" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i24" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="11" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i26" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="12" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i28" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="13" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i30" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="14" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i32" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="15" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i34" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="16" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i35" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="17" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i36" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="18" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i38" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="19" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i40" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="20" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i42" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="21" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i44" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="22" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i46" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="23" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i48" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="24" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i50" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="25" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i52" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="26" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i54" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="27" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i56" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="28" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i58" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="29" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i60" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="30" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i62" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="31" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i64" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="32" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i65" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="33" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i66" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="34" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i68" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="35" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="i70" Style="{StaticResource tbl}" Grid.Column="3" Grid.Row="36" FontSize="{Binding FontSize}"/>
+
+                <TextBox x:Name="p30" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="3" TextChanged="j10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j10" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="4" TextChanged="j10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j12" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="5" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j14" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="6" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j16" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="7" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j18" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="8" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j20" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="9" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j22" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="10" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j24" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="11" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j26" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="12" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j28" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="13" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j30" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="14" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j32" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="15" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j34" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="16" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j35" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="17" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j36" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="18" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j38" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="19" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j40" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="20" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j42" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="21" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j44" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="22" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j46" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="23" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j48" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="24" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j50" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="25" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j52" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="26" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j54" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="27" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j56" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="28" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j58" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="29" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j60" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="30" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j62" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="31" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j64" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="32" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j65" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="33" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j66" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="34" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j68" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="35" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="j70" Style="{StaticResource tbl}" Grid.Column="2" Grid.Row="36" FontSize="{Binding FontSize}"/>
+
+                <TextBox x:Name="p32" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="3" TextChanged="k10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k10" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="4" TextChanged="k10_TextChanged" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k12" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="5" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k14" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="6" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k16" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="7" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k18" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="8" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k20" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="9" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k22" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="10" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k24" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="11" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k26" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="12" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k28" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="13" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k30" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="14" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k32" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="15" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k34" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="16" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k35" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="17" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k36" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="18" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k38" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="19" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k40" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="20" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k42" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="21" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k44" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="22" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k46" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="23" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k48" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="24" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k50" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="25" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k52" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="26" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k54" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="27" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k56" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="28" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k58" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="29" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k60" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="30" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k62" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="31" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k64" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="32" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k65" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="33" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k66" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="34" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k68" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="35" FontSize="{Binding FontSize}"/>
+                <TextBox x:Name="k70" Style="{StaticResource tbl}" Grid.Column="1" Grid.Row="36" FontSize="{Binding FontSize}"/>
+
+            </Grid>
+        </Viewbox>
+    </ScrollViewer>
+</UserControl>

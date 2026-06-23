@@ -1,0 +1,868 @@
+﻿<UserControl x:Class="anbar.User_Controls.UCPreSellForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:anbar.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1300" Background="White" Loaded="UserControl_Loaded" IsVisibleChanged="UserControl_IsVisibleChanged" Focusable="True" PreviewKeyDown="Grid_PreviewKeyDown" x:Name="grid">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style x:Key="CenterTextBlockStyle" TargetType="TextBlock">
+
+                <Setter Property="TextAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+            <Style x:Key="CenterTextBlockStyle1" TargetType="TextBlock">
+                <Setter Property="TextAlignment" Value="Left"/>
+                <Setter Property="Language" Value="fa-IR"/>
+                <Setter Property="FontSize" Value="40"/>
+                <Setter Property="FlowDirection" Value="RightToLeft"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="10,0,0,0"/>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <ScrollViewer>
+        <Grid>
+            <TextBox x:Name="test" Visibility="Collapsed"/>
+            <Button x:Name="back" Click="back_Click" Width="35" Height="35" Margin="0,0,1200,1600">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Image Source="/Source/Pic/back.png"/>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Opacity" Value="0.5"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="save" Click="save_Click" Width="35" Height="35" Margin="0,0,900,1600">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Image Source="/Source/Pic/save3.png"/>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Opacity" Value="0.5"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="print" Click="print_Click" Width="35" Height="35" Margin="0,0,1000,1600">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Image Source="/Source/Pic/print.png"/>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Opacity" Value="0.5"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="add" Click="add_Click" Width="35" Height="35" Margin="1210,0,0,1230">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Image Source="/Source/Pic/add.png"/>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Opacity" Value="0.5"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="del" Click="del_Click" Width="35" Height="35" Margin="1210,0,0,1140">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Image Source="/Source/Pic/del.png"/>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Opacity" Value="0.5"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="edit" Click="edit_Click" Width="35" Height="35" Margin="1210,0,0,1050">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Image Source="/Source/Pic/edit2.png"/>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Opacity" Value="0.5"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Viewbox Width="1200" Height="1700">
+                <Grid x:Name="main" Width="2480" Height="3508">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="480"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Style="{StaticResource lbl}" Content="پیش فاکتور" HorizontalAlignment="Center" FontSize="60" Margin="0,50,0,0"/>
+                    <Border Style="{StaticResource fb}" Width="2400" Height="300" VerticalAlignment="Top" BorderThickness="4" Margin="0,170,0,0"/>
+                    <Label Style="{StaticResource lbl}" Content="شماره فاکتور :" FontSize="45" Margin="0,190,50,0"/>
+                    <Label Style="{StaticResource lbl}" Content="فروشنده :" FontSize="45" Margin="0,280,50,0"/>
+                    <Label Style="{StaticResource lbl}" Content="خریدار :" FontSize="45" Margin="0,375,50,0"/>
+                    <Label Style="{StaticResource lbl}" Content="آدرس خریدار :" FontSize="45" Margin="0,370,1000,0"/>
+                    <Label Style="{StaticResource lbl}" Content="تاریخ صدور :" FontSize="45" Margin="0,190,1000,0"/>
+                    <Label Style="{StaticResource lbl}" Content="تاریخ اعتبار :" FontSize="45" Margin="0,190,1600,0"/>
+                    <Label Style="{StaticResource lbl}" Content="/" FontSize="45" Margin="0,195,1310,0"/>
+                    <Label Style="{StaticResource lbl}" Content="/" FontSize="45" Margin="0,195,1400,0"/>
+                    <Label Style="{StaticResource lbl}" Content="/" FontSize="45" Margin="0,195,1910,0"/>
+                    <Label Style="{StaticResource lbl}" Content="/" FontSize="45" Margin="0,195,2000,0"/>
+                    <Label Style="{StaticResource lbl}" Content="تلفن خریدار :" FontSize="45" Margin="0,280,1000,0"/>
+                    <Label Style="{StaticResource lbl}" Content="-" FontSize="45" Margin="0,280,1475,0"/>
+                    <Border x:Name="borderId" Style="{StaticResource brd}" VerticalAlignment="Top" Width="170" Height="85" Margin="1690,188,0,0"/>
+                    <TextBox x:Name="txtinvoiceId" Style="{StaticResource tbf}" FontFamily="pack://application:,,,/Fonts/#B Nazanin" Width="150" Height="85" VerticalAlignment="Top" FontSize="55" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="1690,188,0,0" IsReadOnly="True" MaxLength="5"/>
+
+                    <Border x:Name="borderSeller" Style="{StaticResource brd}" VerticalAlignment="Top" Width="650" Height="85" Margin="1350,278,0,0"/>
+                    <Border x:Name="borderBuyer" Style="{StaticResource brd}" VerticalAlignment="Top" Width="650" Height="85" Margin="1425,369,0,0"/>
+                    <Border x:Name="borderPhone" Style="{StaticResource brd}" VerticalAlignment="Top" Width="230" Height="85" Margin="0,278,255,0"/>
+                    <Border x:Name="borderPhoneCode" Style="{StaticResource brd}" VerticalAlignment="Top" Width="140" Height="85" Margin="0,278,650,0"/>
+                    <Border x:Name="borderAddress" Style="{StaticResource brd}" VerticalAlignment="Top" Width="1050" Height="85" Margin="0,369,1110,0"/>
+                    <Border x:Name="borderDay" Style="{StaticResource brd}" VerticalAlignment="Top" Width="85" Height="85" Margin="0,188,80,0"/>
+                    <Border x:Name="borderMonth" Style="{StaticResource brd}" VerticalAlignment="Top" Width="85" Height="85" Margin="0,188,260,0"/>
+                    <Border x:Name="borderYear" Style="{StaticResource brd}" VerticalAlignment="Top" Width="140" Height="85" Margin="0,188,495,0"/>
+                    <Border x:Name="borderDayS" Style="{StaticResource brd}" VerticalAlignment="Top" Width="85" Height="85" Margin="0,188,1280,0"/>
+                    <Border x:Name="borderMonthS" Style="{StaticResource brd}" VerticalAlignment="Top" Width="85" Height="85" Margin="0,188,1460,0"/>
+                    <Border x:Name="borderYearS" Style="{StaticResource brd}" VerticalAlignment="Top" Width="140" Height="85" Margin="0,188,1695,0"/>
+                    <TextBox x:Name="txtDay" Style="{StaticResource tbf}" FontFamily="pack://application:,,,/Fonts/#B Nazanin" FontSize="50" VerticalAlignment="Top" Width="65" Height="85" Margin="0,188,80,0" MaxLength="2" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="txtMonth" Style="{StaticResource tbf}" FontFamily="pack://application:,,,/Fonts/#B Nazanin" FontSize="50" VerticalAlignment="Top" Width="65" Height="85" Margin="0,188,260,0" MaxLength="2" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="txtYear" Style="{StaticResource tbf}" FontFamily="pack://application:,,,/Fonts/#B Nazanin" FontSize="50" VerticalAlignment="Top" Width="120" Height="85" Margin="0,188,495,0" MaxLength="4" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="txtDayS" Style="{StaticResource tbf}" FontFamily="pack://application:,,,/Fonts/#B Nazanin" FontSize="50" VerticalAlignment="Top" Width="65" Height="85" Margin="0,188,1280,0" MaxLength="2" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="txtMonthS" Style="{StaticResource tbf}" FontFamily="pack://application:,,,/Fonts/#B Nazanin" FontSize="50" VerticalAlignment="Top" Width="65" Height="85" Margin="0,188,1460,0" MaxLength="2" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="txtYearS" Style="{StaticResource tbf}" FontFamily="pack://application:,,,/Fonts/#B Nazanin" FontSize="50" VerticalAlignment="Top" Width="120" Height="85" Margin="0,188,1695,0" MaxLength="4" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="txtNameS" Style="{StaticResource tbf}" FontSize="45" VerticalAlignment="Top" Width="630" Height="85" Margin="1350,278,0,0"/>
+                    <TextBox x:Name="txtNameB" Style="{StaticResource tbf}" FontSize="45" VerticalAlignment="Top" Width="630" Height="85" Margin="1425,369,0,0"/>
+                    <TextBox x:Name="txtPhone" Style="{StaticResource tbf}" FontSize="45" VerticalAlignment="Top" Width="210" Height="85" Margin="0,278,255,0" MaxLength="8" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+                    <TextBox x:Name="txtPhoneCode" Style="{StaticResource tbf}" FontSize="45" VerticalAlignment="Top" Width="120" Height="85" Margin="0,278,650,0" MaxLength="4" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+                    <TextBox x:Name="txtAddress" Style="{StaticResource tbf}" FontSize="35" VerticalAlignment="Top" Width="1030" Height="85" Margin="170,368,1280,0"/>
+                    <Button Click="dropSeller_Click" x:Name="dropSeller" Width="40" Height="40" VerticalAlignment="Top" Margin="650,300,0,0">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Image Source="/Source/Pic/drop2.png"/>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Opacity" Value="0.5"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Click="dropBuyer_Click" x:Name="dropBuyer" Width="40" Height="40" VerticalAlignment="Top" Margin="730,395,0,0">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Image Source="/Source/Pic/drop2.png"/>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Opacity" Value="0.5"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Grid Width="2400" MinHeight="500" Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <!-- برای ردیف دیتاگرید به صورت خودکار قرار دادیم -->
+                            <RowDefinition Height="Auto"/>
+                            <!-- برای ردیف Border کوچکتر به صورت خودکار -->
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <!-- عرض یکسان برای هر دو ستون -->
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Border بزرگتر که دیتاگرید در آن قرار می‌گیرد -->
+                        <Border CornerRadius="5,5,10,0" Style="{StaticResource fb}" Width="2400" MinHeight="142" Height="Auto" BorderThickness="0,0,4,0" Margin="0,0,0,0" Grid.Row="0" VerticalAlignment="Stretch">
+                            <DataGrid x:Name="myDataGrid" Background="White" Height="Auto" Width="2400" CanUserResizeRows="False" RowHeaderWidth="0" HorizontalScrollBarVisibility="Disabled" CanUserAddRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" FontSize="50" AutoGenerateColumns="False" FlowDirection="RightToLeft" FontFamily="pack://application:,,,/Fonts/#B Nazanin"  BorderThickness="0,0,4,3" BorderBrush="Black" HorizontalGridLinesBrush="Transparent" VerticalGridLinesBrush="Black" AlternatingRowBackground="Transparent" SnapsToDevicePixels="True">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="کد کالا" Width="350" CanUserResize="False" Binding="{Binding ProductCode}">
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style TargetType="TextBlock" BasedOn="{StaticResource CenterTextBlockStyle}">
+                                                <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                                                <Setter Property="FontSize" Value="45"/>
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                        <DataGridTextColumn.HeaderStyle>
+                                            <Style TargetType="DataGridColumnHeader">
+                                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                <Setter Property="BorderThickness" Value="4,4,1.5,4"/>
+                                                <Setter Property="BorderBrush" Value="Black"/>
+                                                <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                                                <Setter Property="Background" Value="White"/>
+                                                <Setter Property="FontSize" Value="45"/>
+                                                <Setter Property="FontWeight" Value="Bold"/>
+                                            </Style>
+                                        </DataGridTextColumn.HeaderStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTextColumn Header="نام کالا" Width="990" CanUserResize="False" CanUserSort="False" Binding="{Binding ProductName}">
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style TargetType="TextBlock" BasedOn="{StaticResource CenterTextBlockStyle1}">
+                                                <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                        <DataGridTextColumn.HeaderStyle>
+                                            <Style TargetType="DataGridColumnHeader">
+                                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                <Setter Property="BorderThickness" Value="4,4,1.5,4"/>
+                                                <Setter Property="BorderBrush" Value="Black"/>
+                                                <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                                                <Setter Property="Background" Value="White"/>
+                                                <Setter Property="FontSize" Value="45"/>
+                                                <Setter Property="FontWeight" Value="Bold"/>
+                                            </Style>
+                                        </DataGridTextColumn.HeaderStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTextColumn Header="تعداد" Width="160" CanUserResize="False" CanUserSort="False" Binding="{Binding InvoiceItemNumber}">
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style TargetType="TextBlock" BasedOn="{StaticResource CenterTextBlockStyle}">
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                        <DataGridTextColumn.HeaderStyle>
+                                            <Style TargetType="DataGridColumnHeader">
+                                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                <Setter Property="BorderThickness" Value="4,4,1,4"/>
+                                                <Setter Property="BorderBrush" Value="Black"/>
+                                                <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                                                <Setter Property="Background" Value="White"/>
+                                                <Setter Property="FontSize" Value="45"/>
+                                                <Setter Property="FontWeight" Value="Bold"/>
+                                            </Style>
+                                        </DataGridTextColumn.HeaderStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTextColumn Header="قیمت واحد" Width="450" CanUserResize="False" CanUserSort="False" Binding="{Binding InvoiceItemPrice}">
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style TargetType="TextBlock" BasedOn="{StaticResource CenterTextBlockStyle}">
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                        <DataGridTextColumn.HeaderStyle>
+                                            <Style TargetType="DataGridColumnHeader">
+                                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                <Setter Property="BorderThickness" Value="4,4,1,4"/>
+                                                <Setter Property="BorderBrush" Value="Black"/>
+                                                <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                                                <Setter Property="Background" Value="White"/>
+                                                <Setter Property="FontSize" Value="45"/>
+                                                <Setter Property="FontWeight" Value="Bold"/>
+                                            </Style>
+                                        </DataGridTextColumn.HeaderStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTextColumn Header="جمع" Width="450" CanUserResize="False" CanUserSort="False" Binding="{Binding InvoiceFinalPrice}">
+                                        <DataGridTextColumn.ElementStyle>
+                                            <Style TargetType="TextBlock" BasedOn="{StaticResource CenterTextBlockStyle}">
+                                            </Style>
+                                        </DataGridTextColumn.ElementStyle>
+                                        <DataGridTextColumn.HeaderStyle>
+                                            <Style TargetType="DataGridColumnHeader">
+                                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                <Setter Property="BorderThickness" Value="4,4,0,4"/>
+                                                <Setter Property="BorderBrush" Value="Black"/>
+                                                <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                                                <Setter Property="Background" Value="White"/>
+                                                <Setter Property="FontSize" Value="45"/>
+                                                <Setter Property="FontWeight" Value="Bold"/>
+                                            </Style>
+                                        </DataGridTextColumn.HeaderStyle>
+                                    </DataGridTextColumn>
+                                </DataGrid.Columns>
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#B Nazanin"/>
+                                        <Setter Property="BorderThickness" Value="0,0,0,0"/>
+                                        <Setter Property="BorderBrush" Value="Black"/>
+                                        <Setter Property="SnapsToDevicePixels" Value="True"/>
+                                    </Style>
+                                </DataGrid.RowStyle>
+                                <DataGrid.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="BorderThickness" Value="4,0,0,0"/>
+                                        <Setter Property="BorderBrush" Value="Black"/>
+                                        <Setter Property="Margin" Value="0"/>
+                                        <Setter Property="Height" Value="60"/>
+                                        <Setter Property="SnapsToDevicePixels" Value="True"/>
+                                    </Style>
+                                </DataGrid.CellStyle>
+                            </DataGrid>
+                        </Border>
+
+                        <!-- Border کوچکتر -->
+                        <Border CornerRadius="0,0,10,10" Style="{StaticResource fb}" Width="451" Height="222" BorderThickness="4,0,5,4" VerticalAlignment="Top" Margin="0,0,0,0" Grid.Row="1" HorizontalAlignment="Left">
+                            <Grid>
+                                <Border Style="{StaticResource fb}" Height="74" VerticalAlignment="Top" BorderThickness="0,0,0,0" CornerRadius="0"/>
+                                <Border Style="{StaticResource fb}" Height="74" VerticalAlignment="Center" BorderThickness="0,4,0,4" CornerRadius="0"/>
+                                <Border Style="{StaticResource fb}" Height="74" VerticalAlignment="Bottom"  CornerRadius="0" BorderThickness="0"/>
+                            </Grid>
+                        </Border>
+                        <Label Grid.Row="1" Style="{StaticResource lbl}" HorizontalContentAlignment="Right" Height="70" Width="280" FontSize="45" Content="قیمت نهایی" Margin="0,0,1170,2285"/>
+                        <Label Grid.Row="1" Style="{StaticResource lbl}" Height="70" HorizontalContentAlignment="Right" Width="280" FontSize="45" Content="تخفیف" Margin="0,0,1170,2140"/>
+                        <Label Grid.Row="1" Style="{StaticResource lbl}" Height="70" Width="360" HorizontalContentAlignment="Right" FontSize="45" Content="مبلغ قابل پرداخت" Margin="0,0,1090,2010"/>
+                        <TextBox x:Name="txtfinalPrice" Grid.Row="1" Style="{StaticResource tbf}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" FontFamily="pack://application:,,,/Fonts/#B Nazanin" Height="70" Width="450" FontSize="55" IsReadOnly="True" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="txtdiscount" GotFocus="txtdiscount_GotFocus" LostFocus="txtdiscount_LostFocus" Grid.Row="1" Style="{StaticResource tbf}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="pack://application:,,,/Fonts/#B Nazanin" Height="70" Width="450" FontSize="55" Margin="0,0,0,2145" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="txtfinalPay" Grid.Row="1" Style="{StaticResource tbf}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" FontFamily="pack://application:,,,/Fonts/#B Nazanin" Height="70" Width="450" FontSize="55" Margin="0,0,0,1995" IsReadOnly="True"/>
+                        <Border Visibility="Collapsed" x:Name="darsadb" Grid.Row="1" Style="{StaticResource fb}" Width="100" Height="80" BorderThickness="4" Margin="0,0,980,2130"/>
+                        <TextBox Visibility="Collapsed" x:Name="darsad" GotFocus="darsad_GotFocus" TextChanged="darsad_TextChanged" Text="0" IsReadOnly="True" Grid.Row="1" Style="{StaticResource tbf}" Width="80" Height="70" MaxLength="3" FontSize="45" HorizontalContentAlignment="Center" Margin="0,0,980,2130"/>
+                        <Label Visibility="Collapsed" x:Name="darsadl" Grid.Row="1" Style="{StaticResource lbl}" Content="%" Width="50" Height="70"  FontSize="50" Margin="0,0,840,2140"/>
+                        <CheckBox x:Name="chk" Grid.Row="1" Width="40" Height="40" Margin="0,0,1130,2130" Checked="chk_Checked" Unchecked="chk_Unchecked">
+                            <CheckBox.Style>
+                                <Style TargetType="CheckBox">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="CheckBox">
+                                                <Grid>
+                                                    <!-- دایره سفارشی -->
+                                                    <Border x:Name="Border" Width="40" Height="40" CornerRadius="20" Background="White" BorderThickness="3" BorderBrush="Black"/>
+
+                                                    <!-- آیکون انتخاب‌شده -->
+                                                    <Path x:Name="CheckMark" Data="M0,20 L10,30 L30,0" Stroke="Transparent" Margin="10,-5,0,0" StrokeThickness="7"/>
+                                                </Grid>
+
+                                                <ControlTemplate.Triggers>
+                                                    <!-- وقتی چک‌باکس انتخاب شد -->
+                                                    <Trigger Property="IsChecked" Value="True">
+                                                        <Setter TargetName="Border" Property="BorderBrush" Value="Green"/>
+                                                        <Setter TargetName="CheckMark" Property="Stroke" Value="Green"/>
+                                                    </Trigger>
+
+                                                    <!-- وقتی چک‌باکس غیرفعال شد -->
+                                                    <Trigger Property="IsEnabled" Value="False">
+                                                        <Setter TargetName="Border" Property="Opacity" Value="1"/>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </CheckBox.Style>
+                        </CheckBox>
+
+
+                        <Border x:Name="detailborder" Style="{StaticResource brd}" Grid.Row="1" Width="2300" Height="70" Margin="100,0,0,1750"/>
+                        <TextBox x:Name="txtdetail" Style="{StaticResource tbf}" Grid.Row="1" Width="2280" Height="70" Margin="100,0,0,1750" FontSize="40"/>
+                        <Button x:Name="dropDetail" Grid.Row="1" Width="50" Height="50" Margin="0,0,2260,1740" Click="dropDetail_Click">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <Image Source="/Source/Pic/drop2.png"/>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Opacity" Value="0.5"/>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Border x:Name="bDetail" Visibility="Collapsed" Grid.Row="1" Width="2300" Height="300" Margin="0,0,0,1370" CornerRadius="10" Background="LightBlue" HorizontalAlignment="Right" Panel.ZIndex="1">
+                            <Grid>
+                                <DataGrid x:Name="dbdetail" Width="2190" Height="200" Margin="0,70,70,0" FlowDirection="RightToLeft" ItemsSource="{Binding details}" CanUserResizeRows="False" RowHeaderWidth="0" GridLinesVisibility="All"  HorizontalScrollBarVisibility="Disabled" CanUserAddRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" FontSize="35" FontWeight="Bold" FontFamily="pack://application:,,,/Fonts/#Vazir" AutoGenerateColumns="False" KeyDown="dbdetail_KeyDown" SelectionChanged="dbdetail_SelectionChanged" IsReadOnly="True">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="  توضیحات" Width="2090" Binding="{Binding InvoiceDetail}">
+                                            <DataGridTextColumn.HeaderStyle>
+                                                <Style TargetType="DataGridColumnHeader">
+                                                    <Setter Property="FontSize" Value="30"/>
+                                                    <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                                                    <Setter Property="FontWeight" Value="Bold"/>
+                                                </Style>
+                                            </DataGridTextColumn.HeaderStyle>
+                                        </DataGridTextColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                                <TextBox x:Name="txtdtailAddorSearch" Style="{StaticResource tbf}" Background="#FF99B2FF" FontSize="35" Width="2190" Height="60" Margin="0,0,70,210"/>
+                                <Button x:Name="addDetaildb" Width="50" Height="50" Margin="2200,0,0,150" Click="addDetaildb_Click">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Image Source="/Source/Pic/add2.png"/>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Opacity" Value="0.5"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                                <Button x:Name="delDetaildb" Width="50" Height="50" Margin="2200,0,0,0" Click="delDetaildb_Click">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Image Source="/Source/Pic/delete.png"/>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Opacity" Value="0.5"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </Grid>
+                        </Border>
+                        <Border x:Name="detailborder2" Style="{StaticResource brd}" Grid.Row="1" Width="2300" Height="280" Margin="100,0,0,1380"/>
+                        <TextBox x:Name="txtdetail2" Style="{StaticResource tbf}" Grid.Row="1" Width="2280" Height="280" Margin="100,0,0,1380" FontSize="40" AcceptsReturn="True" VerticalContentAlignment="Top"/>
+                        <Button x:Name="dropDetail2" Grid.Row="1" Width="50" Height="50" Margin="0,0,2260,1590" Click="dropDetail2_Click">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <Image Source="/Source/Pic/drop2.png"/>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Opacity" Value="0.5"/>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Border x:Name="bDetail2" Visibility="Collapsed" Grid.Row="1" Width="2300" Height="600" Margin="0,0,0,490" CornerRadius="10" Background="LightBlue" HorizontalAlignment="Right">
+                            <Grid>
+                                <DataGrid x:Name="dbdetail2" Width="2190" Height="300" Margin="0,280,70,0" FlowDirection="RightToLeft" ItemsSource="{Binding details2}" CanUserResizeRows="False" RowHeaderWidth="0" GridLinesVisibility="All"  HorizontalScrollBarVisibility="Disabled" CanUserAddRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" FontSize="35" FontWeight="Bold" FontFamily="pack://application:,,,/Fonts/#Vazir" AutoGenerateColumns="False" KeyDown="dbdetail2_KeyDown" SelectionChanged="dbdetail2_SelectionChanged" IsReadOnly="True">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="  توضیحات" Width="2090" Binding="{Binding InvoiceDetail2}">
+                                            <DataGridTextColumn.HeaderStyle>
+                                                <Style TargetType="DataGridColumnHeader">
+                                                    <Setter Property="FontSize" Value="30"/>
+                                                    <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                                                    <Setter Property="FontWeight" Value="Bold"/>
+                                                </Style>
+                                            </DataGridTextColumn.HeaderStyle>
+                                        </DataGridTextColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                                <TextBox x:Name="txtdtailAddorSearch2" Style="{StaticResource tbf}" Background="#FF99B2FF" FontSize="35" Width="2190" Height="270" Margin="0,0,70,300" AcceptsReturn="True" VerticalContentAlignment="Top"/>
+                                <Button x:Name="addDetaildb2" Width="50" Height="50" Margin="2200,0,0,500" Click="addDetaildb2_Click">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Image Source="/Source/Pic/add2.png"/>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Opacity" Value="0.5"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                                <Button x:Name="delDetaildb2" Width="50" Height="50" Margin="2200,0,0,350" Click="delDetaildb2_Click">
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Image Source="/Source/Pic/delete.png"/>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Opacity" Value="0.5"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Button.Style>
+                                </Button>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <Border Grid.RowSpan="2" x:Name="sellp" Visibility="Collapsed" Width="500" Height="500" CornerRadius="10" Margin="100,0,0,2450" Background="#FFD9D9FF" BorderThickness="2" BorderBrush="BlueViolet">
+                        <Grid>
+                            <TextBox x:Name="sellerList" Text="جستجو..." TextChanged="sellerList_TextChanged" GotFocus="sellerList_GotFocus" LostFocus="sellerList_LostFocus" Style="{StaticResource tbf}" FontSize="35" Width="450" Height="80" Margin="0,0,0,360" Foreground="LightGray" Background="White" PreviewKeyDown="sellerList_PreviewKeyDown">
+                            </TextBox>
+                            <DataGrid x:Name="sGrid" SelectionChanged="sGrid_SelectionChanged" PreviewKeyDown="sGrid_PreviewKeyDown" CanUserResizeRows="False" RowHeaderWidth="0" GridLinesVisibility="None" HorizontalScrollBarVisibility="Disabled" CanUserAddRows="False" ItemsSource="{Binding people}" CanUserResizeColumns="False" CanUserReorderColumns="False" Width="450" Height="350" Margin="0,100,0,0" FontSize="28" FontWeight="Bold" AutoGenerateColumns="False" FlowDirection="RightToLeft" FontFamily="pack://application:,,,/Fonts/#Vazir" Background="#FFD9D9FF" IsReadOnly="True">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="کد" Width="100" Binding="{Binding PersonIdByUser}"/>
+                                    <DataGridTextColumn Header="نام" Width="350" Binding="{Binding PersonName}"/>
+                                </DataGrid.Columns>
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <Setter Property="Margin" Value="2"/>
+                                        <Setter Property="Background" Value="LightBlue"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="DataGridRow">
+                                                    <Border CornerRadius="3" Background="{TemplateBinding Background}">
+                                                        <DataGridCellsPresenter/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </DataGrid.RowStyle>
+                            </DataGrid>
+                        </Grid>
+                    </Border>
+                    <Border Grid.RowSpan="2" x:Name="buyp" Visibility="Collapsed" Width="500" Height="500" CornerRadius="10" Margin="180,0,0,2280" Background="#FFD9D9FF" BorderThickness="2" BorderBrush="BlueViolet">
+                        <Grid>
+                            <TextBox x:Name="buyerList" Text="جستجو..." TextChanged="buyerList_TextChanged" GotFocus="buyerList_GotFocus" LostFocus="buyerList_LostFocus" Style="{StaticResource tbf}" FontSize="35" Width="450" Height="80" Margin="0,0,0,360" Foreground="LightGray" PreviewKeyDown="buyerList_PreviewKeyDown">
+                                <TextBox.Background>
+                                    <SolidColorBrush Color="White" Opacity="1"/>
+                                </TextBox.Background>
+                            </TextBox>
+                            <DataGrid x:Name="bGrid" SelectionChanged="bGrid_SelectionChanged" PreviewKeyDown="bGrid_PreviewKeyDown" CanUserResizeRows="False" RowHeaderWidth="0" GridLinesVisibility="None" HorizontalScrollBarVisibility="Disabled" CanUserAddRows="False" ItemsSource="{Binding people}" CanUserResizeColumns="False" CanUserReorderColumns="False" Width="450" Height="350" Margin="0,100,0,0" FontSize="28" FontWeight="Bold" AutoGenerateColumns="False" FlowDirection="RightToLeft" FontFamily="pack://application:,,,/Fonts/#Vazir" Background="#FFD9D9FF" IsReadOnly="True">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="کد" Width="100" Binding="{Binding PersonIdByUser}"/>
+                                    <DataGridTextColumn Header="نام" Width="350" Binding="{Binding PersonName}"/>
+                                </DataGrid.Columns>
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="DataGridRow">
+                                        <Setter Property="Margin" Value="2"/>
+                                        <Setter Property="Background" Value="LightBlue"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="DataGridRow">
+                                                    <Border CornerRadius="3" Background="{TemplateBinding Background}">
+                                                        <DataGridCellsPresenter/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </DataGrid.RowStyle>
+                            </DataGrid>
+                        </Grid>
+                    </Border>
+                    <Border x:Name="addGrid" Visibility="Collapsed" Grid.Row="2" CornerRadius="10" BorderThickness="4" BorderBrush="MediumPurple" Background="#FFD9D9FF" Width="1800" Height="600" Margin="0,0,0,1990">
+                        <Grid>
+                            <Label Content="کد کالا :" Style="{StaticResource lbl}" HorizontalContentAlignment="Right" FontSize="45" Width="160" Height="70" Margin="1420,0,0,400"/>
+                            <Label Content="نام کالا :" Style="{StaticResource lbl}" HorizontalContentAlignment="Right" FontSize="45" Width="160" Height="70" Margin="1420,0,0,200"/>
+                            <Label Content="تعداد :" Style="{StaticResource lbl}" HorizontalContentAlignment="Right" FontSize="45" Width="160" Height="70" Margin="1420,0,0,0"/>
+                            <Label Content="قیمت واحد :" Style="{StaticResource lbl}" HorizontalContentAlignment="Right" FontSize="45" Width="240" Height="70" Margin="1500,200,0,0"/>
+                            <Border Style="{StaticResource brd}" Width="600" Height="70" Margin="660,0,0,400"/>
+                            <Border Style="{StaticResource brd}" Width="600" Height="70" Margin="660,0,0,200"/>
+                            <Border Style="{StaticResource brd}" Width="600" Height="70" Margin="660,0,0,0"/>
+                            <Border Style="{StaticResource brd}" Width="600" Height="70" Margin="660,200,0,0"/>
+                            <TextBox x:Name="productCode" Style="{StaticResource tbf}" Width="580" Height="70" Margin="660,0,0,400" FontSize="35" VerticalContentAlignment="Center" PreviewKeyDown="productCode_KeyDown"/>
+                            <TextBox x:Name="productName" Style="{StaticResource tbf}" Width="580" Height="70" Margin="660,0,0,200" FontSize="30" VerticalContentAlignment="Center" PreviewKeyDown="productName_KeyDown"/>
+                            <TextBox x:Name="productNumber" Style="{StaticResource tbf}" FontFamily="pack://application:,,,/Fonts/#B Nazanin" Width="580" Height="70" Margin="660,0,0,0" FontSize="45" VerticalContentAlignment="Center" PreviewKeyDown="productNumber_KeyDown"/>
+                            <TextBox x:Name="productPrice" Style="{StaticResource tbf}" FontFamily="pack://application:,,,/Fonts/#B Nazanin" Width="580" Height="70" Margin="660,200,0,0" FontSize="45" VerticalContentAlignment="Center" PreviewKeyDown="productPrice_KeyDown" TextChanged="productPrice_TextChanged"/>
+                            <TextBox x:Name="productShow" Style="{StaticResource tbf}" FontFamily="pack://application:,,,/Fonts/#B Nazanin" Width="280" Height="70" Margin="360,350,0,0" FontSize="45" VerticalContentAlignment="Center" IsReadOnly="True" HorizontalContentAlignment="Right"/>
+                            <Border Width="860" Height="450" CornerRadius="10" Margin="0,0,890,25">
+                                <Border.Background>
+                                    <SolidColorBrush Color="Blue" Opacity="0.1"/>
+                                </Border.Background>
+                                <Grid>
+                                    <Label Style="{StaticResource lbl}" Content="جستجو :" FontSize="45" Height="70" Margin="0,0,60,360"/>
+                                    <TextBox Style="{StaticResource tbf}" TextChanged="searchProduct_TextChanged" PreviewKeyDown="searchProduct_PreviewKeyDown"  GotFocus="searchProduct_GotFocus" LostFocus="searchProduct_LostFocus" x:Name="searchProduct" Text="جستجو..." FontSize="45" Width="500" Height="70" Background="White" Foreground="LightGray" Margin="0,0,140,360"/>
+                                    <DataGrid x:Name="productDG" ItemsSource="{Binding products}" Width="850" Height="350" BorderThickness="0" Margin="0,80,0,0" SelectionChanged="productDG_SelectionChanged" PreviewKeyDown="productDG_PreviewKeyDown" CanUserResizeRows="False" RowHeaderWidth="0" GridLinesVisibility="None" HorizontalScrollBarVisibility="Disabled" CanUserAddRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" FontSize="35" FontWeight="Bold" AutoGenerateColumns="False" FlowDirection="RightToLeft" FontFamily="pack://application:,,,/Fonts/#Vazir" IsReadOnly="True">
+                                        <DataGrid.Background>
+                                            <SolidColorBrush Color="Blue" Opacity="0.01"/>
+                                        </DataGrid.Background>
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="کد کالا" Width="250" CanUserResize="False" Binding="{Binding ProductIdByUser}">
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="Margin" Value="10,0,0,0"/>
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                                <DataGridTextColumn.HeaderStyle>
+                                                    <Style TargetType="DataGridColumnHeader">
+                                                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                        <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                                                        <Setter Property="FontSize" Value="45"/>
+                                                        <Setter Property="FontWeight" Value="Bold"/>
+                                                    </Style>
+                                                </DataGridTextColumn.HeaderStyle>
+                                            </DataGridTextColumn>
+                                            <DataGridTextColumn Header="نام کالا" Width="600" CanUserResize="False" Binding="{Binding ProductName}">
+                                                <DataGridTextColumn.ElementStyle>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="Language" Value="fa-IR"/>
+                                                        <Setter Property="FlowDirection" Value="RightToLeft"/>
+                                                        <Setter Property="FontSize" Value="30"/>
+                                                        <Setter Property="Margin" Value="10,0,0,0"/>
+                                                    </Style>
+                                                </DataGridTextColumn.ElementStyle>
+                                                <DataGridTextColumn.HeaderStyle>
+                                                    <Style TargetType="DataGridColumnHeader">
+                                                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                        <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                                                        <Setter Property="FontSize" Value="45"/>
+                                                        <Setter Property="FontWeight" Value="Bold"/>
+                                                    </Style>
+                                                </DataGridTextColumn.HeaderStyle>
+                                            </DataGridTextColumn>
+                                        </DataGrid.Columns>
+                                        <DataGrid.RowStyle>
+                                            <Style TargetType="DataGridRow">
+                                                <Setter Property="Margin" Value="2"/>
+                                                <Setter Property="Background" Value="LightBlue"/>
+                                                <Setter Property="FontWeight" Value="Bold"/>
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="DataGridRow">
+                                                            <Border CornerRadius="3" Background="{TemplateBinding Background}">
+                                                                <DataGridCellsPresenter/>
+                                                            </Border>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </DataGrid.RowStyle>
+                                        <DataGrid.CellStyle>
+                                            <Style TargetType="DataGridCell">
+                                                <Setter Property="BorderThickness" Value="2,0,0,0"/>
+                                                <Setter Property="BorderBrush" Value="Black"/>
+                                            </Style>
+                                        </DataGrid.CellStyle>
+                                    </DataGrid>
+                                </Grid>
+                            </Border>
+                            <Button x:Name="addbtn" Content="ثبت" Width="250" Height="90" Margin="1450,450,0,0" Click="addbtn_Click">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="FontSize" Value="35"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                                        <Setter Property="Cursor" Value="Hand"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="100"/>
+                                                            <ColumnDefinition/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Border CornerRadius="10" Background="LightBlue" Grid.ColumnSpan="2"/>
+                                                        <ContentPresenter Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                                                        <Image Grid.Column="0" Source="/Source/Pic/save.png"/>
+                                                    </Grid>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Opacity" Value="0.5"/>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                            <Button x:Name="cancelbtn" Content="انصراف" Width="250" Height="90" Margin="930,450,0,0" Click="cancelbtn_Click">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="FontSize" Value="35"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                                        <Setter Property="Cursor" Value="Hand"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="100"/>
+                                                            <ColumnDefinition/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Border CornerRadius="10" Background="LightBlue" Grid.ColumnSpan="2"/>
+                                                        <ContentPresenter Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                                                        <Image Grid.Column="0" Source="/Source/Pic/cancel.png"/>
+                                                    </Grid>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Opacity" Value="0.5"/>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </Grid>
+                    </Border>
+                    <Border x:Name="editB" Visibility="Collapsed" Width="1200" Height="600" Grid.Row="1" VerticalAlignment="Top" Margin="0,100,0,0" Background="#FFD9D9FF" BorderThickness="4" BorderBrush="BlueViolet" CornerRadius="10">
+                        <Grid>
+                            <Label Content="کد کالا :" Style="{StaticResource lbl}" HorizontalContentAlignment="Right" FontSize="45" Width="160" Height="70" Margin="750,0,0,450"/>
+                            <Label Content="نام کالا :" Style="{StaticResource lbl}" HorizontalContentAlignment="Right" FontSize="45" Width="160" Height="70" Margin="750,0,0,225"/>
+                            <Label Content="تعداد :" Style="{StaticResource lbl}" HorizontalContentAlignment="Right" FontSize="45" Width="160" Height="70" Margin="750,0,0,0"/>
+                            <Label Content="موجودی :" Style="{StaticResource lbl}" HorizontalContentAlignment="Right" FontSize="30" Width="160" Height="70" Margin="0,10,230,0"/>
+                            <Label Content="قیمت واحد :" Style="{StaticResource lbl}" HorizontalContentAlignment="Right" FontSize="45" Width="240" Height="70" Margin="830,225,0,0"/>
+
+                            <Border Style="{StaticResource brd}" Width="700" Height="70" Margin="0,0,150,450"/>
+                            <Border Style="{StaticResource brd}" Width="700" Height="70" Margin="0,0,150,225"/>
+                            <Border Style="{StaticResource brd}" Width="340" Height="70" Margin="360,0,150,0"/>
+                            <Border Style="{StaticResource brd}" Width="700" Height="70" Margin="0,225,150,0"/>
+
+                            <TextBox x:Name="productCode2" Style="{StaticResource tbf}" Width="680" Height="70" Margin="0,0,150,450" FontSize="40" VerticalContentAlignment="Center" IsReadOnly="True"/>
+                            <TextBox x:Name="productName2" Style="{StaticResource tbf}" Width="680" Height="70" Margin="0,0,150,225" FontSize="35" IsReadOnly="True" VerticalContentAlignment="Center"/>
+                            <TextBox x:Name="productNumberShow" Style="{StaticResource tbf}" FontFamily="pack://application:,,,/Fonts/#B Nazanin" Width="320" Height="70" Margin="0,0,510,0" FontSize="45" VerticalContentAlignment="Center" IsReadOnly="True" MaxLength="9" HorizontalContentAlignment="Right"/>
+                            <TextBox x:Name="productNumber2" Style="{StaticResource tbf}" FontFamily="pack://application:,,,/Fonts/#B Nazanin" Width="320" Height="70" Margin="360,0,150,0" FontSize="45" VerticalContentAlignment="Center" PreviewKeyDown="productNumber2_PreviewKeyDown" MaxLength="9"/>
+                            <TextBox x:Name="productPrice2" Style="{StaticResource tbf}" FontFamily="pack://application:,,,/Fonts/#B Nazanin" Width="680" Height="70" Margin="0,225,150,0" FontSize="45" VerticalContentAlignment="Center" PreviewKeyDown="productPrice2_PreviewKeyDown" TextChanged="productPrice2_TextChanged"/>
+                            <TextBox x:Name="productPriceShow" Style="{StaticResource tbf}" FontFamily="pack://application:,,,/Fonts/#B Nazanin" Width="420" Height="70" Margin="0,380,410,0" FontSize="45" VerticalContentAlignment="Center" IsReadOnly="True" HorizontalContentAlignment="Right"/>
+
+                            <Button x:Name="ad" Content="ثبت" Width="250" Height="90" Margin="900,460,0,0" Click="ad_Click">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="FontSize" Value="35"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                                        <Setter Property="Cursor" Value="Hand"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="100"/>
+                                                            <ColumnDefinition/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Border CornerRadius="10" Background="LightBlue" Grid.ColumnSpan="2"/>
+                                                        <ContentPresenter Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                                                        <Image Grid.Column="0" Source="/Source/Pic/save.png"/>
+                                                    </Grid>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Opacity" Value="0.5"/>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                            <Button x:Name="ca" Content="انصراف" Width="250" Height="90" Margin="350,460,0,0" Click="ca_Click">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="FontSize" Value="35"/>
+                                        <Setter Property="FontWeight" Value="Bold"/>
+                                        <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                                        <Setter Property="Cursor" Value="Hand"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="Button">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="100"/>
+                                                            <ColumnDefinition/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Border CornerRadius="10" Background="LightBlue" Grid.ColumnSpan="2"/>
+                                                        <ContentPresenter Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                                                        <Image Grid.Column="0" Source="/Source/Pic/cancel.png"/>
+                                                    </Grid>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Opacity" Value="0.5"/>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </Grid>
+                    </Border>
+                    <Border x:Name="hint" Background="#FFD9A9FF" CornerRadius="10" BorderBrush="BlueViolet" BorderThickness="4" Width="550" Height="500" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0,100,0,0" Visibility="Collapsed" Focusable="True" PreviewKeyDown="hint_PreviewKeyDown">
+                        <Grid>
+                            <Label Style="{StaticResource lbl}" Content="F1 :" FontSize="50" FontFamily="Aria" Margin="0,30,200,0"/>
+                            <Label Style="{StaticResource lbl}" Content="بستن پنجره" FontSize="50" Margin="0,20,300,0"/>
+                            <Label Style="{StaticResource lbl}" Content="F2 :" FontSize="50" FontFamily="Aria" Margin="0,110,200,0"/>
+                            <Label Style="{StaticResource lbl}" Content="افزودن" FontSize="50" Margin="0,100,300,0"/>
+                            <Label Style="{StaticResource lbl}" Content="F3 :" FontSize="50" FontFamily="Aria" Margin="0,190,200,0"/>
+                            <Label Style="{StaticResource lbl}" Content="حذف" FontSize="50" Margin="0,180,300,0"/>
+                            <Label Style="{StaticResource lbl}" Content="F4 :" FontSize="50" FontFamily="Aria" Margin="0,270,200,0"/>
+                            <Label Style="{StaticResource lbl}" Content="ویرایش" FontSize="50" Margin="0,260,300,0"/>
+                            <Label Style="{StaticResource lbl}" Content="F5 :" FontSize="50" FontFamily="Aria" Margin="0,350,200,0"/>
+                            <Label Style="{StaticResource lbl}" Content="ذخیره" FontSize="50" Margin="0,340,300,0"/>
+                            <Label Style="{StaticResource lbl}" Content="Backspace :" FontSize="50" FontFamily="Aria" Margin="0,420,14,0"/>
+                            <Label Style="{StaticResource lbl}" Content="خروج" FontSize="50" Margin="0,410,300,0"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Viewbox>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

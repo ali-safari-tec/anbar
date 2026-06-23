@@ -1,0 +1,119 @@
+﻿<UserControl x:Class="anbar.User_Controls.USProduct"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:anbar.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1300" Loaded="UserControl_Loaded" PreviewKeyDown="UserControl_KeyDown">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="معرفی محصولات" Grid.Column="0" HorizontalAlignment="Right" FontSize="24" FontWeight="Bold" FontFamily="pack://application:,,,/Fonts/#Vazir" Width="1280" Height="700" VerticalAlignment="Top" Margin="0,10,10,0" BorderThickness="2" Grid.ColumnSpan="3" Grid.RowSpan="3" FlowDirection="RightToLeft"/>
+
+        <DataGrid x:Name="dgInvoice" FlowDirection="RightToLeft" Grid.ColumnSpan="2" Grid.RowSpan="3" Grid.Column="1" HorizontalAlignment="Right" Width="600" Height="560" Margin="0,0,20,15" BorderThickness="0" CanUserResizeRows="False" RowHeaderWidth="0" GridLinesVisibility="None" HorizontalScrollBarVisibility="Disabled" CanUserAddRows="False" CanUserResizeColumns="False" CanUserReorderColumns="False" AutoGenerateColumns="False" SelectionChanged="dgInvoice_SelectionChanged" PreviewKeyDown="dgInvoice_KeyDown" IsReadOnly="True" MouseDown="dgInvoice_MouseDown">
+            <DataGrid.Background>
+                <SolidColorBrush Color="Blue" Opacity="0.2"/>
+            </DataGrid.Background>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="کد محصول" Binding="{Binding ProductIdByUser}" Width="180">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="نام محصول" Binding="{Binding ProductName}" Width="420">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Language" Value="fa-IR"/>
+                            <Setter Property="FlowDirection" Value="RightToLeft"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Margin" Value="5,5,5,0"/>
+                    <Setter Property="Background" Value="LightBlue"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontFamily" Value="pack://application:,,,/Fonts/#Vazir"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="DataGridRow">
+                                <Border CornerRadius="10" Background="{TemplateBinding Background}">
+                                    <DataGridCellsPresenter/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="Margin" Value="10,0,0,0"/>
+                </Style>
+            </DataGrid.CellStyle>
+        </DataGrid>
+
+        <Grid Grid.RowSpan="3" Grid.ColumnSpan="2" Width="800" Height="650">
+            <!-- label fot titles -->
+            <Label Style="{StaticResource lbl}" Content="تعداد :" FontSize="25" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="410,0,0,280"/>
+            <Label Style="{StaticResource lbl}" Content="جستجو :" FontSize="25" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="110,0,0,450"/>
+            <Label Style="{StaticResource lbl}" Content="قیمت :" FontSize="25" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="410,0,0,160"/>
+            <Label Style="{StaticResource lbl}" Content="توضیحات :" FontSize="25" Width="210" Height="50" HorizontalContentAlignment="Right" Margin="410,0,0,45"/>
+            
+            <!-- border for textbox -->
+            <Border Style="{StaticResource brd}" Width="250" Height="50" Margin="0,0,350,450"/>
+            <Border Style="{StaticResource brd}" Width="400" Height="50" Margin="0,0,200,280"/>
+            <Border Style="{StaticResource brd}" Width="400" Height="50" Margin="0,0,200,160"/>
+            <Border Style="{StaticResource brd}" Width="400" Height="200" Margin="0,110,200,0"/>
+            <!-- textbox readonly for show detail of invoice -->
+
+            <TextBox x:Name="search" Style="{StaticResource tbf}" Width="230" Height="50" Margin="0,0,350,450" FontSize="20" FontFamily="pack://application:,,,/Fonts/#Vazir" TextChanged="search_TextChanged"/>
+            <TextBox x:Name="count" Style="{StaticResource tbf}" Width="380" Height="50" Margin="0,0,200,280" IsReadOnly="True" FontSize="30" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+            <TextBox x:Name="fee" Style="{StaticResource tbf}" Width="380" Height="50" Margin="0,0,200,160" IsReadOnly="True" FontSize="30" FontFamily="pack://application:,,,/Fonts/#B Nazanin"/>
+            <TextBox x:Name="detail" Style="{StaticResource tbf}" Width="380" Height="190" Margin="0,110,200,0" IsReadOnly="True" FontSize="20" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalContentAlignment="Top" FontFamily="pack://application:,,,/Fonts/#Vazir"/>
+        </Grid>
+
+        <Button x:Name="Add" Click="Add_Click" Tag="/Source/pic/addperson.png" Style="{StaticResource ubtn}" Content="  افزودن محصول" Grid.Column="2" Grid.Row="2" Margin="230,160,0,0">
+            <Button.ToolTip>
+                <ToolTip Style="{StaticResource tip}" Content="افزودن محصول جدید" Placement="Top" VerticalOffset="-5" HorizontalOffset="0"/>
+            </Button.ToolTip>
+        </Button>
+        <Button x:Name="Edit" Click="Edit_Click" Tag="/Source/pic/edit.png" Style="{StaticResource ubtn}" Content="   ویرایش محصول" Grid.Column="2" Grid.Row="2" Margin="0,160,100,0">
+            <Button.ToolTip>
+                <ToolTip Style="{StaticResource tip}" Content="ویرایش مشخصات محصول مورد نظر" Placement="Top" VerticalOffset="-5" HorizontalOffset="0"/>
+            </Button.ToolTip>
+        </Button>
+        <Button x:Name="Delete" Click="Delete_Click" Tag="/Source/pic/delete.png" Style="{StaticResource ubtn}" Content="    حذف محصول" Grid.Column="1" Grid.Row="2" Margin="3,160,0,0" Grid.ColumnSpan="2">
+            <Button.ToolTip>
+                <ToolTip Style="{StaticResource tip}" Content="حذف محصول مورد نظر" Placement="Top" VerticalOffset="-5" HorizontalOffset="0"/>
+            </Button.ToolTip>
+        </Button>
+        <Grid x:Name="ProductGrid" Grid.ColumnSpan="3" Grid.RowSpan="3" Width="1100" Height="500" Visibility="Collapsed" Background="White">
+
+        </Grid>
+    </Grid>
+</UserControl>

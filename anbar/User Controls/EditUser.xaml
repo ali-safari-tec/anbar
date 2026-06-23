@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="anbar.User_Controls.EditUser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:anbar.User_Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500" Loaded="UserControl_Loaded">
+    <Border CornerRadius="5">
+        <Border.Background>
+            <SolidColorBrush Color="#FFC5D2DA" Opacity="0.3"/>
+        </Border.Background>
+        <Grid>
+            <GroupBox Header="افزودن شخص جدید" Width="450" Height="280" FlowDirection="RightToLeft" FontFamily="pack://application:,,,/Fonts/#Vazir" FontSize="16" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Label Content=": نام کاربری فعلی" FontSize="16" FontWeight="Bold" Margin="310,0,0,170" Width="130" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="pack://application:,,,/Fonts/#Vazir"/>
+            <Label Content=": کلمه عبور فعلی" FontSize="16" FontWeight="Bold" Margin="310,0,0,100" Width="130" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="pack://application:,,,/Fonts/#Vazir"/>
+            <Label Content=": نام کاربری جدید" FontSize="16" FontWeight="Bold" Margin="310,0,0,30" Width="130" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="pack://application:,,,/Fonts/#Vazir"/>
+            <Label Content=": کلمه علور جدید" FontSize="16" FontWeight="Bold" Margin="310,40,0,0" Width="130" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontFamily="pack://application:,,,/Fonts/#Vazir"/>
+            <TextBox x:Name="oldUser" Style="{StaticResource tbf}" Height="30" FontSize="16" Width="280" Margin="0,0,120,170" Panel.ZIndex="1" FlowDirection="LeftToRight" PreviewKeyDown="oldUser_PreviewKeyDown"/>
+            <TextBox x:Name="oldPass" Style="{StaticResource tbf}" Width="280" Height="30" FontSize="16" Margin="0,0,120,100" Panel.ZIndex="1" FlowDirection="LeftToRight" PreviewKeyDown="oldPass_PreviewKeyDown"/>
+            <TextBox x:Name="newUser" Style="{StaticResource tbf}" Width="280" Height="30" FontSize="16" Margin="0,0,120,30" Panel.ZIndex="1" FlowDirection="LeftToRight" PreviewKeyDown="newUser_PreviewKeyDown"/>
+            <TextBox x:Name="newPass" Style="{StaticResource tbf}" Width="280" Height="30" FontSize="16" Margin="0,40,120,0" Panel.ZIndex="1" FlowDirection="LeftToRight" PreviewKeyDown="newPass_PreviewKeyDown"/>
+            <Border Style="{StaticResource brd}" Width="300" Height="30" Margin="0,0,120,100"/>
+            <Border Style="{StaticResource brd}" Width="300" Height="30" Margin="0,0,120,170"/>
+            <Border Style="{StaticResource brd}" Width="300" Height="30" Margin="0,0,120,30"/>
+            <Border Style="{StaticResource brd}" Width="300" Height="30" Margin="0,40,120,0"/>
+            <Button x:Name="save" Style="{StaticResource ubtn}" Content="  ثبت" Tag="/Source/pic/save.png" Width="100" Margin="300,160,0,0" Click="save_Click">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="ثبت اطلاعات" Placement="Bottom" VerticalOffset="5" HorizontalOffset="50"/>
+                </Button.ToolTip>
+            </Button>
+            <Button x:Name="cancel" Width="100" Style="{StaticResource ubtn}" Content="انصراف" Tag="/Source/pic/cancel.png" Margin="80,160,0,0" Click="cancel_Click">
+                <Button.ToolTip>
+                    <ToolTip Style="{StaticResource tip}" Content="انصراف" Placement="Bottom" VerticalOffset="5" HorizontalOffset="50"/>
+                </Button.ToolTip>
+            </Button>
+        </Grid>
+    </Border>
+</UserControl>
