@@ -1,6 +1,6 @@
-<div align="center">
+# Anbar
 
-# 📦 Anbar
+<div align="center">
 
 ### Warehouse Management System built with WPF & Sqlite
 
