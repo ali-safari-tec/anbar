@@ -2,9 +2,9 @@
 
 # 📦 Anbar
 
-### Warehouse Management System built with WPF & SQL Server
+### Warehouse Management System built with WPF & Sqlite
 
-A desktop warehouse management application developed using C#, WPF and SQL Server.
+A desktop warehouse management application developed using C#, WPF and Sqlite.
 
 Designed to manage products, purchases, sales, inventory, expenses and financial reports through a modern desktop interface.
 
@@ -12,7 +12,7 @@ Designed to manage products, purchases, sales, inventory, expenses and financial
 
 ![C#](https://img.shields.io/badge/C%23-.NET-purple?style=for-the-badge)
 ![WPF](https://img.shields.io/badge/WPF-Desktop-blue?style=for-the-badge)
-![SQL Server](https://img.shields.io/badge/SQL%20Server-Database-red?style=for-the-badge)
+![Sqlite](https://img.shields.io/badge/SQL%20Server-Database-red?style=for-the-badge)
 ![Visual Studio](https://img.shields.io/badge/Visual%20Studio-2022-green?style=for-the-badge)
 
 </div>
@@ -55,8 +55,6 @@ Designed to manage products, purchases, sales, inventory, expenses and financial
 
 ✅ Modern WPF User Interface
 
-✅ SQL Server Integration
-
 ✅ User Authentication
 
 ✅ Application Settings
@@ -81,89 +79,8 @@ After logging in, you can change both username and password from inside the appl
 | ------------------ | ------------------------- |
 | C#                 | Main programming language |
 | WPF                | Desktop UI Framework      |
-| SQL Server         | Database                  |
+| Sqlite             | Database                  |
 | XAML               | User Interface Design     |
 | ADO.NET            | Database Communication    |
 | Visual Studio 2022 | Development Environment   |
 
----
-
-# 📁 Project Structure
-
-```text
-anbar
-│
-├── Data
-│   ├── Database Layer
-│   └── Data Models
-│
-├── User Controls
-│   └── Reusable UI Components
-│
-├── Windows
-│   └── Application Pages & Windows
-│
-├── Tools
-│   └── Utility Classes
-│
-├── Source
-│   └── Application Resources
-│
-├── Fonts
-│   └── Custom Fonts
-│
-└── Properties
-```
-
----
-
-# 🚀 Getting Started
-
-Clone the repository:
-
-```bash
-git clone https://github.com/ali-safari-tec/anbar.git
-```
-
-Open the solution in Visual Studio 2022.
-
-Configure SQL Server connection settings.
-
-Build and run the project.
-
----
-
-# 🎯 Project Goals
-
-This project was developed to gain practical experience in:
-
-* WPF Desktop Development
-* SQL Server Integration
-* Software Architecture
-* Reusable User Controls
-* Application Design
-* Inventory Management Systems
-
----
-
-# 🔮 Future Improvements
-
-* Excel Export
-* PDF Reports
-* Backup & Restore
-* Barcode Support
-* Multi-user Access Levels
-* Advanced Reporting Dashboard
-
----
-
-# 👨‍💻 Developer
-
-Ali Safari
-
-GitHub:
-https://github.com/ali-safari-tec
-
----
-
-⭐ If you like this project, consider giving it a star.
