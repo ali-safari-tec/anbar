@@ -75,12 +75,12 @@ After logging in, you can change both username and password from inside the appl
 
 # 🛠 Technologies
 
-| Technology         | Description               |
-| ------------------ | ------------------------- |
-| C#                 | Main programming language |
-| WPF                | Desktop UI Framework      |
-| Sqlite             | Database                  |
-| XAML               | User Interface Design     |
-| ADO.NET            | Database Communication    |
-| Visual Studio 2022 | Development Environment   |
+| Description               | Technology         |
+| ------------------------- | ------------------ |
+| Main programming language | C#                 |
+| Desktop UI Framework      | WPF                |
+| Database                  | Sqlite             |
+| User Interface Design     | XAML               |
+| Database Communication    | ADO.NET            |
+| Development Environment   | Visual Studio 2022 |
 
