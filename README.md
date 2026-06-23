@@ -4,13 +4,13 @@
 
 ### Warehouse Management System built with WPF & Sqlite
 
-A desktop warehouse management application developed using C#, WPF and Sqlite.
+A desktop warehouse management application developed using C#, WPF and Sqlite for Win 7 or higher (.NETFramework 4.7.1).
 
 Designed to manage products, purchases, sales, inventory, expenses and financial reports through a modern desktop interface.
 
 <br>
 
-![C#](https://img.shields.io/badge/C%23-.Framework-purple?style=for-the-badge)
+![C#](https://img.shields.io/badge/C%23-.NETFramework-purple?style=for-the-badge)
 ![WPF](https://img.shields.io/badge/WPF-Desktop-blue?style=for-the-badge)
 ![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?style=for-the-badge)
 ![Visual Studio](https://img.shields.io/badge/Visual%20Studio-2022-green?style=for-the-badge)
