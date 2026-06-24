@@ -13,7 +13,7 @@ Designed to manage products, purchases, sales, inventory, expenses and financial
 ![Language](https://img.shields.io/badge/Language-C%23-purple?style=flat)
 ![Type](https://img.shields.io/badge/Type-Desktop%20Application-blue?style=flat)
 ![Framework](https://img.shields.io/badge/Framework-WPF-red?style=flat)
-![.NET Version](https://img.shields.io/badge/.NET%20Version-.NET%20Framework%204.7.1-green?style=flat)
+![.NET Version](https://img.shields.io/badge/.NET%20Version-.NET%20Framework%204.7.1-brown?style=flat)
 ![Database](https://img.shields.io/badge/Database-SQLite-003B57?style=flat)
 ![Visual Studio](https://img.shields.io/badge/Visual%20Studio-2022-green?style=flat)
 
