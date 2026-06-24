@@ -10,10 +10,12 @@ Designed to manage products, purchases, sales, inventory, expenses and financial
 
 <br>
 
-![C#](https://img.shields.io/badge/C%23-.NETFramework-purple?style=for-the-badge)
-![WPF](https://img.shields.io/badge/WPF-Desktop-blue?style=for-the-badge)
-![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?style=for-the-badge)
-![Visual Studio](https://img.shields.io/badge/Visual%20Studio-2022-green?style=for-the-badge)
+![Language](https://img.shields.io/badge/Language-C%23-purple?style=flat)
+![Type](https://img.shields.io/badge/Type-Desktop%20Application-blue?style=flat)
+![Framework](https://img.shields.io/badge/Framework-WPF-red?style=flat)
+![.NET Version](https://img.shields.io/badge/.NET%20Version-.NET%20Framework%204.7.1-green?style=flat)
+![Database](https://img.shields.io/badge/Database-SQLite-003B57?style=flat)
+![Visual Studio](https://img.shields.io/badge/Visual%20Studio-2022-green?style=flat)
 
 </div>
 
